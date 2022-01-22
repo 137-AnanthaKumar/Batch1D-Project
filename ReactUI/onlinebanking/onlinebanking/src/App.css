@@ -21,7 +21,9 @@
 
 .home {
   background-image: url('./images/img-1.jpg');
-  background-position: center;
+  opacity: 0.75;
+  z-index: -1;
+  /* background-position: center; */
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
