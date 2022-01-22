@@ -14,13 +14,13 @@ import javax.persistence.Table;
 public class AccountOpening {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="applicatin_id")
-	private int aplicationId;
+	@Column(name="application_id")
+	private Long aplicationId;
     @Column(name="title")
     private String Title;
     @Column(name="name")
     private String Name;
-    @Column(name="dob")
+    @Column(name="date_of_birth")
     private Date DateOfBirth;
     @Column(name="email")
     private String Email;
@@ -28,17 +28,19 @@ public class AccountOpening {
     private Long PhoneNo;
     @Column(name="pan_no")
     private String PanNo;
-    @Column(name="aadhar_no")
+    @Column(name="aadharno")
     private String AadharNo;
+   
     @Column(name="aadhar_doc_id")
     private String AadhaDocId;
+   
     @Column(name="pan_doc_id")
     private String PanDocId;
-	public int getAplicationId() {
+	public Long getAplicationId() {
 		return aplicationId;
 	}
 	public void setAplicationId(int aplicationId) {
-		this.aplicationId = aplicationId;
+		this.aplicationId = (long) aplicationId;
 	}
 	public String getTitle() {
 		return Title;
