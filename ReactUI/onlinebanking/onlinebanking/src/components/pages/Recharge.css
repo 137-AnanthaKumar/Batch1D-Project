@@ -1,0 +1,11 @@
+.recharge{
+  position: relative;
+  border: 1px solid blue;
+  border-radius: 10px;
+ margin-left: auto;
+ margin-right:auto;
+ margin-top: auto;
+ height: 200px;
+  width: 500px;
+  text-align: center;
+}

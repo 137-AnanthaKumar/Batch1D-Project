@@ -1,7 +1,7 @@
 export const MenuItems = [
   {
     title: 'MobileRecharge',
-    path: '/marketing',
+    path: '/Recharge',
     cName: 'dropdown-link'
   },
   {
