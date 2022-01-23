@@ -6,7 +6,7 @@ export const MenuItems = [
   },
   {
     title: 'CollegeFees',
-    path: '/consulting',
+    path: '/CollegeFees',
     cName: 'dropdown-link'
   },
   {

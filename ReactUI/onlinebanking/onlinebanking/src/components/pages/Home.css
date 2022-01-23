@@ -1,67 +1,84 @@
 
-input[type=text], select {
-    width: 200px;
-    padding: 5px 235px;
-    margin: 8px 0;
-    display:block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: blue;
-    box-sizing: border-box;
-}
-.login{
-    padding-top: 25px;
-}
 .main{
-      z-index: 1;
+     position: absolute;
+     display: flex;
+     width: 100%;
+     height: 500px;
+     /* background-image: url('./images/img-1.jpg'); */
+     background-color: blue;
+     
+    
+  }
+  .adminlogin{
     text-align: center;
-    font-size: 20px;
-      position: relative;
-      margin-top: 80px;
-    margin-left: 500px;
-  }
-  .register{
-     border: none;
-     background-color: rosybrown;
-     color: white;
-     width: 400px;
-     height: 350px;
-    position: absolute;
-    padding: 10px;
-    border-radius: 20px;
-    margin: 50px 550px;
+    display: block;
+    background-color: blueviolet;
+    border: 1px solid gray;
+    width: 300px;
+    height: 300px;
     position: relative;
-    top: -600px;
-  }
-  
-  /* Style the submit button */
-  input[type=submit] {
-    width: 200px;
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 35px 0;
-    border: none;
-    border-radius: 18px;
-    cursor: pointer;
-  }
-  
-  /* Add a background color to the submit button on mouse-over */
-  input[type=submit]:hover {
-    background-color: #d88304;
-  }
-.loginbtn{
-    width: 140px;
-    height: 60px;
-    margin: 0px 30px;
-    font-size: 25px;
-    background-color: #aa4104;
-    color: white;
     border-radius: 10px;
+    margin-top:120px;
+    margin-left: 200px;
+
+  }
+  .userlogin{
+    text-align: center;
+    background-color: brown;
+    border: 1px solid gray;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    margin-top: 120px;
+    margin-left: 50px;
+
+  }
+  .divinput{
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+  }
+  label{
+    font-size: x-large;
+  }
+  .inout{
+    border-radius: 10px;
+    border-color: darkblue;
+    color: blue;
+    margin: 8px 0;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+
+  }
+  form{
+    margin-top: 20px;
+    margin-left:20px;
+    display: inline-table;
+  }
+  button:hover{
+    background-color: cornflowerblue;
+    color: wheat;
+    
+  }
+  button{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
     cursor: pointer;
-    opacity: 1;
-}
-.loginbtn:hover{
-    background-color: darkseagreen;
-    color: darkred;
-}
+  }
+  .divhead{
+    background-color: beige;
+    color: brown;
+    width: 100%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-right-radius: 10px;
+   
+    border-top-left-radius: 10px;
+
+  }
+
+  

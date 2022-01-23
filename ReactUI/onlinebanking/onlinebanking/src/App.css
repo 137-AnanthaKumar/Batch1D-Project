@@ -23,7 +23,7 @@
   background-image: url('./images/img-1.jpg');
   opacity: 0.75;
   z-index: -1;
-  /* background-position: center; */
+ 
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
@@ -75,7 +75,7 @@
   font-size: 100px;
 }
 
-.consulting {
+.CollegeFees{
   background-image: url('./images/img-5.jpg');
   background-position: bottom;
   background-size: cover;

@@ -1,31 +1,56 @@
-import React ,{useState} from 'react';
-
+import React, { useState } from 'react';
 import { RegisterService } from '../services/RegisterService';
 import './SignUp.css';
 
+class SignUp extends react.component{
+  constructor(props) {
+        super(props)
 
-export default function SignUp(props) {
-  const [data, setData] = useState({name:"", Email:""})
-  const HamdleChenge = (e) => {
-  let name=e.target.name;
-  let value=e.target.value;
-  setData({[name]:value})
+        this.state = {
+           
+            id: this.props.match.params.id,
+            name: '',
+           
+            emailId: '',
+        }
+        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
+        this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
+        this.saveOrUpdateEmployee = this.saveOrUpdateEmployee.bind(this);
+    }
+    changeFirstNameHandler= (event) => {
+      this.setState({name: event.target.value});
   }
-  
-  const store = () => {
-    
-    
-    RegisterService.createNewUser(data).then(res =>{
-      props.history.push('/create');
-      setData({name:"",Email:""})
 
-  } )}
+  changeEmailHandler=(event)=>{
+    this.setState({emailId:event.target.value})
+  }
+ saveDetails = (e) => {
+  e.preventDefault();
+  let newUser = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
+  
+      
+  RegisterService.createNewUser(newUser).then(res =>{
+ props.history.push('/create');
+             
+          }
+  
+  
+  
+   ) }
+  
+  render(){
+
+
+
+
+
+
 
   return (
     <div className='container'>
       <h1>Regitration Form</h1>
-      <form>
-        
+
+
 
 
 
@@ -39,10 +64,10 @@ export default function SignUp(props) {
 
         </select>
 
-        <input type="text" id="fname" name="name" value={data.name} onChange={HamdleChenge} placeholder="Enter Full Name" /></div>
+        <input type="text" id="fname" onChange={this.changeFirstNameHandler} value={this.state.name} placeholder="Enter Full Name" /></div>
       <div className="div1">
         <label for="email">Email:</label>
-        <input type="email" id="email"  value={data.Email} name="email" onChange={HamdleChenge} placeholder="Enter Email" /></div>
+        <input type="email" id="email" name="email" value={this.state.emailIdS} onchange={this.changeEmailHandler}placeholder="Enter Email" /></div>
       <div className="div1">
         <label for="fname">Date of birth:</label>
         <input type="date" id="birthday" name="birthday" /></div>
@@ -63,12 +88,11 @@ export default function SignUp(props) {
         <input type="file" id="myFile" name="filename" /></div>
       <div className="div1">
 
-        <button onClick={store} >Submit Form</button></div>
-
-        </form>
-
+        <button onClick={this.Savedetails}>Submit Form</button></div>
 
 
     </div>
   );
 }
+}
+export default SignUp;

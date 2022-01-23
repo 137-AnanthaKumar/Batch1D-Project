@@ -32,7 +32,7 @@ function Navbar() {
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           OnlineBanking
-          <i class='fab fa-firstdraft' />
+          <i class="fas fa-piggy-bank"></i>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -63,7 +63,7 @@ function Navbar() {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Products
+              Interest
             </Link>
           </li>
           <li className='nav-item'>

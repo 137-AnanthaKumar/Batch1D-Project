@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+  border-radius: 30px;
+  position: sticky;
+  top: 0%;
 }
 
 .navbar-logo {
@@ -92,11 +95,17 @@
     padding: 2rem;
     width: 100%;
     display: table;
+  
+
   }
 
   .nav-links:hover {
-    background-color: #1888ff;
+    background-color: #386796;
     border-radius: 0;
+    color: wheat;
+    border-radius: 5px;
+    border: 2px solid blue;
+    font-size: 55px;
   }
 
   .navbar-logo {

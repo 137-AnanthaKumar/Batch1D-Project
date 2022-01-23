@@ -8,5 +8,7 @@ import com.bank.onlinebanking.entity.AccountOpening;
 @Repository
 public interface AccountOpeningRepo extends JpaRepository<AccountOpening , Long>{
 
+	
+	
 }
 
