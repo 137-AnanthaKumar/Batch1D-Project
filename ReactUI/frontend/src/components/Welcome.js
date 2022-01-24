@@ -11,7 +11,7 @@ class Welcome extends Component {
       <Container className="mainbg">
       <div className="BankName"> <center><h1 id="head1">WELCOME TO OUR KNST BANK</h1></center></div>
         <div className="text-primary">
-          <marquee width="80%" direction="left" height="100px">
+          <marquee width="100%" direction="left" height="100px">
           <h5 id="marquee">Are You Ready For Join With Our Bank 
           <Link to="/applynew" > <span>Apply Now</span></Link></h5>
           </marquee>
@@ -38,7 +38,7 @@ class Welcome extends Component {
                   <Card.Text>
                     <div>
                       <Link to="/custlogin" className="nav-link">
-                        Login Here
+                        Login NetBanking
                       </Link>
                     </div>
                   </Card.Text>
@@ -49,7 +49,7 @@ class Welcome extends Component {
             <div className="col-sm-3 ">
               <Card className="registerbox">
                 <Card.Body>
-                  <Card.Title>New Register?</Card.Title>
+                  <Card.Title>New To NetBanking?</Card.Title>
                   <Card.Text>
                     <div>
                       <Link

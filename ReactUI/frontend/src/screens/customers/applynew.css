@@ -10,9 +10,14 @@ label{
     width: 700px;
     height: 70px;
     border-radius: 25px;
-    align-items: center;
+  text-align: center;
+    
 
 }
 .file{
     display: block
+}
+#pan{
+    padding-bottom: 20px;
+
 }

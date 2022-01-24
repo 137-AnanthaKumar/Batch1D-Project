@@ -41,7 +41,7 @@ function applynew() {
  
   <div class="form-group">
     <label for="exampleInputPassword1">Mobile Number</label>
-    <input type="number" class="form-control" id="phonenoinput" placeholder="Enter Your Active Phone Number"/>
+    <input type="text" class="form-control" id="phonenoinput" placeholder="Enter Your Active Phone Number"/>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Permanent Account Number(PAN)</label>
@@ -55,11 +55,12 @@ function applynew() {
   <label>Upload Aadhar:</label>
   <input type="file" id="myFile" name="Aadhar"/>
   </div>
-  <div className="file">
-  <label>Upload PAN   :</label>
-  <input type="file" id="myFile" name="PAN"/>
-  </div><center>
+  <div className="file"><br></br>
+  <label id="pan">Upload PAN   :</label>
+  <input type="file" id="myFile" name="PAN"/><br></br>
+  </div><center><br></br>
   <button type="submit" class="btn btn-primary">Submit</button></center>
+  <br></br>
 </form>
   </div>);
 }

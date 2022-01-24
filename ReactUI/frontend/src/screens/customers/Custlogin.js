@@ -75,7 +75,7 @@ const CustLogin = (props) => {
     <h4><center>Important Notice</center></h4>
         <ul>
         <li>
-        An additional feature of “CAPTCHA” has been introduced for ICICI Bank’s 
+        An additional feature of “CAPTCHA” has been introduced for KNST Bank’s 
         Internet Banking login, to ensure a safer banking experience.
         
         </li>
