@@ -1,5 +1,5 @@
 label{
-    color: white;
+    color: rgb(110, 5, 5);
     font-size: 20px;
 }
 #colorhead{
@@ -11,6 +11,7 @@ label{
     height: 70px;
     border-radius: 25px;
   text-align: center;
+  margin-top: 10px;
     
 
 }
@@ -20,4 +21,10 @@ label{
 #pan{
     padding-bottom: 20px;
 
+}
+.application{
+    background-image: url("img.png");
+    border-radius: 23px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
