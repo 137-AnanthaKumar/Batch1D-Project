@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container-fluid no-padding">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div>
+					Welcome <b th:text="${Customer.getFirstName()}"></b><br> To
+					activate your account, please <a
+						th:href="@{http://localhost:8080/ebanking/customer/activate/{id}(id=${Customer.getCustomerId()})}">Click
+						me</a>
+				</div>
+				<div style="background-image: url('https://image.shutterstock.com/image-photo/businessman-holding-word-banking-hand-600w-1150180799.jpg'); height: 300px; widht:50px;"></div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
