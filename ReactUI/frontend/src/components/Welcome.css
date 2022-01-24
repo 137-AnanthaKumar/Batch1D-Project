@@ -1,0 +1,44 @@
+#text , span{
+    color: blue;
+}
+#head1{
+    color: rgb(112, 29, 29);
+    padding: 15px;
+    background-color: aliceblue;
+    border-radius: 40px;
+}
+.registerbox , .loginbox {
+    background-color: orange;
+}
+.mainbg{
+    background-image: url(bag.png);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+
+
+    
+    
+    
+    
+    /* background-color: brown; */
+}
+h5{
+    color: whitesmoke;
+}
+.BankName{
+    background-color: orange;
+    border-radius: 50px;
+    width: 1000px;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.textitems{
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 10px;
+}

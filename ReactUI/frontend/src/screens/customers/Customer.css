@@ -1,0 +1,26 @@
+.customer{
+    background-color: orange;
+    color: blueviolet;
+    width: 300px;
+    margin-left: 800px;
+    margin-top: 50px;
+    position:absolute;
+
+    
+}
+.mainclass{
+    display: block;
+}
+#head1{
+    color: blueviolet;
+}
+.dataclass{
+  width: 700px;
+  height: 600px;
+  background-color: white;
+  color: blue;
+  border-color: orange;
+  font-size:medium;
+  border-radius: 10px;
+  border: none;
+}
