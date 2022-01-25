@@ -3,7 +3,7 @@ import { signin } from "../../actions/adminActions/adminActions";
 import { Card } from "react-bootstrap";
 // import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { orange } from "@material-ui/core/colors";
+import './adminlogin.css';
 
 const AdminLogin = (props) => {
   const [email, setEmail] = useState("");
@@ -30,7 +30,9 @@ const AdminLogin = (props) => {
   }, [loading, error, response]);
 
   return (
-    <Card style={{backgroundColor:"orange"}}>
+    <div className="admincard">
+    <Card style={{backgroundColor:"rgb(73, 70, 65)"}}>
+  
       <Card.Header>Admin Login</Card.Header>
       <Card.Body>
         <div>
@@ -67,6 +69,7 @@ const AdminLogin = (props) => {
         </div>
       </Card.Body>
     </Card>
+    </div>
   );
 };
 

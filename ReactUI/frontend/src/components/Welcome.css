@@ -17,28 +17,31 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: fixed;
-
-
-    
-    
-    
-    
-    /* background-color: brown; */
+    margin-top: 10px;
 }
+
 h5{
     color: whitesmoke;
 }
 .BankName{
     background-color: orange;
     border-radius: 50px;
-    width: 1000px;
+    width: 800px;
     align-items: center;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
+}
+.BankName:hover{
+    color: orange;
+    background-color: brown;
 }
 .textitems{
     background-color: aliceblue;
     border-radius: 20px;
     padding: 10px;
+}
+#para{
+    color: blue;
 }

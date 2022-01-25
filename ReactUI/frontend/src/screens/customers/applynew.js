@@ -4,10 +4,10 @@ import { Form } from 'react-bootstrap';
 import { Label } from '@material-ui/icons';
 
 function applynew() {
-  return (<div style={{backgroundColor:"orange" , borderRadius:"20px"}}>
+  return (<div className="application">
 
     <form>
-    <center><h1 id="colorhead">Application Form for New Account</h1></center>
+    <center><h1 id="colorhead"><label>Application Form for New Account</label></h1></center>
     <div class="form-group">
     <label>Select Title</label>
      <select name="cars" id="cars">

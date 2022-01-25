@@ -1,0 +1,8 @@
+.admincard{
+    background-color: rgb(73, 70, 65);
+    color: blueviolet;
+    width: 500px;
+    margin-left: -150px;
+    margin-top: 50px;
+    position:absolute;
+}

@@ -19,13 +19,13 @@ class Welcome extends Component {
        
       <br/>
       <div className="textitems">
-        <h3 id="text"><Link to="/custlogin" >
-       Log in
-     </Link> to KNST Bank Internet Banking
+        <h6 id="text">  <p id="para"> <Link to="/custlogin" >
+        Log in
+      </Link> to KNST Bank Internet Banking
        Manage your finances conveniently and securely with KNST Bank Internet Banking, 
        right from the comfort of your home or your office. Getting started with our 
         Internet Banking portal is simple. All you need is your user ID and password to use 
-        our internet banking services.</h3></div>
+        our internet banking services.</p></h6></div>
         <br />
       
         <div>
