@@ -8,6 +8,8 @@ import com.app.pojos.NewApplication;
 
 public interface NewApplicationRepository extends JpaRepository<NewApplication ,Long>{
 
+	NewApplicationRepository save(NewApplicationRepository accountopen);
+
 
 
 

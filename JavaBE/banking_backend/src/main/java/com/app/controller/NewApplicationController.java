@@ -23,7 +23,7 @@ public class NewApplicationController {
 	private NewApplicationRepository newApplicationRepository;
 	
 	@GetMapping("/allaccounts")
-	public List<NewApplicationRepository> getAllRequest(){
+	public List<NewApplication> getAllRequest(){
 		return newApplicationRepository.findAll();
 	}
 	//build create Rest api

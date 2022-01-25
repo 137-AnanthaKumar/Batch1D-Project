@@ -8,15 +8,15 @@
 
     
 }
-/* .mainclass{
+.mainclass{
     display: block;
-} */
+}
 #head1{
     color: blueviolet;
 }
 .dataclass{
   width: 700px;
-  height: 0px;
+  height: 600px;
   background-color: white;
   color: blue;
   border-color: orange;

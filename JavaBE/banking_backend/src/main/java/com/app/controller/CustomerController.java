@@ -64,7 +64,7 @@ public class CustomerController {
 
 	}
 
-	@PutMapping("/updateEmail/{customerId}") // id should be passed in url and email in body
+	@PutMapping("/updateEmail/{customerId}") 
 	public String updateEmail(@PathVariable int customerId , @RequestBody ObjectNode json) {// String email
 		return customerService.updateEmail(customerId, json.get("email").asText());
 	}

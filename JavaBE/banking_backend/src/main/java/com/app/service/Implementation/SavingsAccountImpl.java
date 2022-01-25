@@ -37,6 +37,7 @@ public class SavingsAccountImpl implements ISavingsAccountService {
 			Optional<SavingsAccount> optional= savingAccountRepo.findByAccountNumberAndBranchName(sa.getAccountNumber(), sa.getBranchName());
 			System.out.println("optional data = "+optional);
 			String str=null;
+			
 			if(optional.isPresent())
 			{
 				System.out.println("inside optional.ispresent()");
