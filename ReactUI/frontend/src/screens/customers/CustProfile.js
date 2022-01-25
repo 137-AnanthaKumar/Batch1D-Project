@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import './CustProfile.css';
 
 const CustProfile = (props) => {
   const customer = JSON.parse(sessionStorage.getItem("customer"));
   //console.log(customer)
   return (
-    <div>
-      <Container className="text-white">
+    <div className="mainprofile">
+    <div className="custprofile">
+      <Container className="text-dark">
         {" "}
-        <Card className={"border border-dark bg-dark text-white"}>
+        <Card className={"border border-dark bg-white text-dark"}>
           <Card.Header>Profile</Card.Header>
           <Card.Body>
             <h4>Personal Information</h4>
@@ -30,6 +32,29 @@ const CustProfile = (props) => {
           </Card.Body>
         </Card>
       </Container>
+     
+    </div>
+    
+    
+    <div className="smalldetails">
+       
+    <marquee width="100%" direction="up" behavior="slide" height="300px">
+    <div>
+    <ul>
+    <li style={{color:"blue"}}>
+    Here You Are In welcome Page .You Can Make Transaction To Your Payee...
+    </li><br></br>
+    <li style={{color:"orange"}}>
+    Here You Are In welcome Page .You Can Make Transaction To Your Payee...
+    </li><br></br>
+    <li style={{color:"green"}}>
+    Here You Are In welcome Page .You Can Make Transaction To Your Payee...</li>
+   
+    
+    </ul>
+    </div>
+     </marquee>
+    </div>
     </div>
   );
 };

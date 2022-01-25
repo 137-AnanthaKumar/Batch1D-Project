@@ -18,8 +18,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import CustProfile from "./CustProfile";
 import MakeTransaction from "./MakeTrans";
 import TransactionHistory from "./TranscHistory";
-import ChangeMobNo from "./ChangeMobNo";
-import ChangeEmail from "./ChangeEmail";
+
+
 import ChangePass from "./ChangePass";
 import { history } from "react-router-dom";
 
@@ -105,10 +105,10 @@ export default function PersistentDrawerLeft(props) {
       case "HISTORY":
         return <TransactionHistory />;
 
-      case "CHANGEMOB":
-        return <ChangeMobNo />;
-      case "CHANGEEMAIL":
-        return <ChangeEmail />;
+      // case "CHANGEMOB":
+      //   return <ChangeMobNo />;
+      // case "CHANGEEMAIL":
+      //   return <ChangeEmail />;
       case "CHANGEPASS":
         return <ChangePass />;
       default:
@@ -179,18 +179,12 @@ export default function PersistentDrawerLeft(props) {
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Transaction History" />
           </ListItem>
-          <ListItem button onClick={(e) => setfragment("CHANGEMOB")}>
-            <ListItemIcon></ListItemIcon>
-            <ListItemText primary="Change Mobile Number" />
-          </ListItem>
+       
           <ListItem button onClick={(e) => setfragment("CHANGEPASS")}>
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Change Password" />
           </ListItem>
-          <ListItem button onClick={(e) => setfragment("CHANGEEMAIL")}>
-            <ListItemIcon></ListItemIcon>
-            <ListItemText primary="Change Email" />
-          </ListItem>
+        
           <ListItem button onClick={onLogout}>
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Logout" />
