@@ -1,4 +1,4 @@
-package com.app.pojos;
+package com.app.entity;
 
 import java.util.ArrayList;
 import java.util.List;

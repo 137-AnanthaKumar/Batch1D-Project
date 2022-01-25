@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.CustomerRepository;
-import com.app.pojos.Customer;
+import com.app.entity.Customer;
 import com.app.service.Interfaces.ICustomerService;
 
 //Customer Service Implementation 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import com.app.pojos.Customer;
+import com.app.entity.Customer;
 
 @Service
 public class EmailServiceImpl {

@@ -9,6 +9,7 @@ import applynew from "./screens/customers/applynew";
 import CustLogin from "./screens/customers/Custlogin";
 import CustHome from "./screens/customers/CustHome";
 import CustRegs from "./screens/customers/CustomerRegister.js";
+import Approve from "./screens/admin/Approve";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -26,7 +27,7 @@ function App() {
             <Route path="/adminlogin" exact component={AdminLogin} />
 
             
-
+           <Route path="/approve" exact component={Approve}/>
             <Route path="/adminhome" exact component={adminHome} />
             <Route path="/applynew" exact component={applynew}/>
             <Route path="/" exact component={Welcome} />

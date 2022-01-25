@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.pojos.Customer;
-import com.app.pojos.Employee;
-import com.app.pojos.SavingsAccount;
-import com.app.pojos.SavingsTransaction;
+import com.app.entity.Customer;
+import com.app.entity.Employee;
+import com.app.entity.SavingsAccount;
+import com.app.entity.SavingsTransaction;
 import com.app.service.Interfaces.ICustomerService;
 import com.app.service.Interfaces.IEmployeeService;
 import com.app.service.Interfaces.ISavingsAccountService;

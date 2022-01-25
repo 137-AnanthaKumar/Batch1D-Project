@@ -1,6 +1,6 @@
 package com.app.service.Interfaces;
 
-import com.app.pojos.SavingsAccount;
+import com.app.entity.SavingsAccount;
 
 public interface ISavingsAccountService {
 	

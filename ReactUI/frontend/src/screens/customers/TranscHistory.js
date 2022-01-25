@@ -21,7 +21,7 @@ const TransactionHistory = (props) => {
   useEffect(() => {}, [error, response, loading]);
 
   return (
-    <Card className={"border border-dark bg-dark text-white"}>
+    <Card className={"border border-white bg-white text-dark"}>
       <Card.Header>Transaction History</Card.Header>
       <Card.Body>
         <div>

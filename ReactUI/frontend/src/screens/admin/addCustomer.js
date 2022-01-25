@@ -36,12 +36,7 @@ const AddCustomer = (props) => {
     setMobileNo("");
   };
 
-  // let btnClear = document.querySelector("button");
-  // let inputs = document.querySelectorAll("input");
-
-  // btnClear.addEventListener("onClick", () => {
-  //   inputs.forEach((input) => (input.value = ""));
-  // });
+ 
 
   const onaddCust = () => {
     dispatch(

@@ -55,7 +55,7 @@ const CustomerFundTransfer = (props) => {
   return (
     <div>
       <Container className="text-white">
-        <Card className={"border border-dark bg-dark text-white"}>
+        <Card className={"border border-white bg-white text-dark"}>
           <Card.Header>Fund Transfer</Card.Header>
           <Card.Body>
             <div className="mb-3">

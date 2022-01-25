@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.SavingsAccountRepository;
-import com.app.pojos.SavingsAccount;
+import com.app.entity.SavingsAccount;
 import com.app.service.Interfaces.ISavingsAccountService;
 
 

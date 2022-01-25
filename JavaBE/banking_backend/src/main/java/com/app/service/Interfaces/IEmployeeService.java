@@ -1,6 +1,6 @@
 package com.app.service.Interfaces;
 
-import com.app.pojos.Employee;
+import com.app.entity.Employee;
 
 public interface IEmployeeService {
 	Employee login(String email, String password);

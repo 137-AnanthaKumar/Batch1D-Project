@@ -1,11 +1,14 @@
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 import './applynew.css';
 import { Form } from 'react-bootstrap';
-import { Label } from '@material-ui/icons';
+
+
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { NewApplication } from "../../actions/customerActions/customerAction.js";
 
-function Applynew() {
+const Applynew =(props)=> {
+  
 
   const[fullname,setFullname]=useState("");
   const[date,setdate]=useState("");
@@ -16,8 +19,8 @@ function Applynew() {
   const[aadhar,setAadhar]=useState("");
 
   const dispatch = useDispatch();
-  const newRegister = useSelector((store) => store.newRegister);
-  // const { loading, error, response } = newRegister;
+  // const newApplication = useSelector((store) => store.NewApplication);
+  // const { loading, error, response } = newApplication;
   // toast.configure();
 
   const clearform=()=>{
@@ -33,21 +36,41 @@ function Applynew() {
 
   const submitform=()=>{
     dispatch(
-      (
+      NewApplication(
         fullname,
         date,
         email,
         title,
         mobile,
-        
         aadhar
       
       )
     );
-    alert("successfully submited")
+    
   }
+  // useEffect(() => {
+  //   if (response && response === "Successfully submited..!") {
+      
+  //     toast.success(
+  //       "Application Submission successful..!!",
+  //       { autoClose: 10000 }
+  //     );
+  //     clearform();
+      
+  //   } else if (response && response.status === "error") {
+     
+  //     toast.error(response.error, {
+  //       autoClose: 10000,
+  //     });
+  //   } else if (error) {
+     
+  //     toast.error("Already have with this data!!!", {
+  //       autoClose: 3000,
+  //     });
+  //   }
+  // }, [loading, error, response]);
 
-
+  // useEffect(() => {}, []);
 
 
 
@@ -70,7 +93,7 @@ function Applynew() {
   <div class="form-group">
   
   <label for="fullname">FullName</label>
-  <input type="email"
+  <input type="text"
   onChange={(e) => {
     setFullname(e.target.value);
   }}

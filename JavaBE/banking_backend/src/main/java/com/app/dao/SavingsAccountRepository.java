@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.app.pojos.SavingsAccount;
+import com.app.entity.SavingsAccount;
 
 public interface SavingsAccountRepository extends JpaRepository<SavingsAccount, Integer> {
 	

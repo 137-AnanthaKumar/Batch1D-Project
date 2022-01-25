@@ -1,4 +1,4 @@
-package com.app.pojos;
+package com.app.entity;
 
 import java.sql.Date;
 
@@ -20,26 +20,24 @@ public class NewApplication {
 	@Column(name="application_id")
 	private int applicationId;
 	@Column(name="title")
-	private String Title;
+	private String title;
 	@Column(name="name")
-	private String Name;
+	private String fullname;
 	
 	@Column(name="Dob")
-	private Date Dob;
+	private Date date;
 	
 	@Column(name="email",unique = true)
 	private String email;
 	
 	@Column(name="mobileNo")
-	private String mobileNo;
+	private String mobile;
 
 	@Column(name="panNo")
-	private String PanNo;
+	private String pan;
 	
 	@Column(name="aadharNo")
-	private String AadharNo;
-	
-	
+	private String aadhar;
 
 	public int getApplicationId() {
 		return applicationId;
@@ -50,27 +48,27 @@ public class NewApplication {
 	}
 
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
-	public String getName() {
-		return Name;
+	public String getFullname() {
+		return fullname;
 	}
 
-	public void setName(String name) {
-		Name = name;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 
-	public Date getDob() {
-		return Dob;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setDob(Date dob) {
-		Dob = dob;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getEmail() {
@@ -81,29 +79,31 @@ public class NewApplication {
 		this.email = email;
 	}
 
-	public String getMobileNo() {
-		return mobileNo;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
-	public String getPanNo() {
-		return PanNo;
+	public String getPan() {
+		return pan;
 	}
 
-	public void setPanNo(String panNo) {
-		PanNo = panNo;
+	public void setPan(String pan) {
+		this.pan = pan;
 	}
 
-	public String getAadharNo() {
-		return AadharNo;
+	public String getAadhar() {
+		return aadhar;
 	}
 
-	public void setAadharNo(String aadharNo) {
-		AadharNo = aadharNo;
+	public void setAadhar(String aadhar) {
+		this.aadhar = aadhar;
 	}
 	
+	
+
 	
 }

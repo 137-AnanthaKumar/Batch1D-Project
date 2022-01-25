@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.pojos.Customer;
-import com.app.pojos.RegistrationFormData;
-import com.app.pojos.SavingsAccount;
-import com.app.pojos.SavingsTransaction;
+import com.app.entity.Customer;
+import com.app.entity.RegistrationFormData;
+import com.app.entity.SavingsAccount;
+import com.app.entity.SavingsTransaction;
 import com.app.service.Implementation.EmailServiceImpl;
 import com.app.service.Interfaces.ICustomerService;
 import com.app.service.Interfaces.ISavingsAccountService;
@@ -53,10 +53,10 @@ public class CustomerController {
 	// Login api
 	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> fetchDetails(@RequestBody Customer c) {
-		Customer cust = new Customer();
+//		Customer cust = new Customer();
 		System.out.println("in fetch customer email : " + c.getEmail() + "	password : " + c.getPassword());
-		if ((cust = customerService.getCustomerDetails(c.getEmail(), c.getPassword())) != null) {
-			return ResponseEntity.ok(cust);
+		if ((c = customerService.getCustomerDetails(c.getEmail(), c.getPassword())) != null) {
+			return ResponseEntity.ok(c);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -97,14 +97,12 @@ public class CustomerController {
 			}
 
 			if (customerService.addCustomer(customer)) {
-				// if(str=="Already registered")
-				// return new ResponseEntity<>(HttpStatus.FOUND); // status: 302
-				// else if(str=="Registered")
+				
 				return ResponseEntity.ok("Registered Succesfully..!!");
-				// return ResponseEntity.ok(c); // successfully registered // status: 200
+				
 			}
 		}
-		// }
+		
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	

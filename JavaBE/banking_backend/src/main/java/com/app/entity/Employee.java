@@ -1,4 +1,4 @@
-package com.app.pojos;
+package com.app.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

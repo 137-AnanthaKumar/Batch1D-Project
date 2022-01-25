@@ -19,6 +19,8 @@ import AddCustomer from "./addCustomer";
 import Profile from "./profile";
 import ListCustomer from "./listCustomer";
 import ListTransaction from "./listTransaction";
+import Approve from "./Approve";
+
 import { logout } from "../../actions/adminActions/adminActions";
 import { useDispatch, useSelector } from "react-redux";
 import { history } from "react-router-dom";
@@ -107,6 +109,8 @@ export default function PersistentDrawerLeft(props) {
         return <ListCustomer />;
       case "LIST_TRANS":
         return <ListTransaction />;
+        case "LIST_NEWAPPLICATION":
+          return <Approve />;
       default:
         break;
     }
@@ -167,6 +171,10 @@ export default function PersistentDrawerLeft(props) {
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItem>
+          <ListItem button onClick={(e) => setfragment("LIST_NEWAPPLICATION")}>
+          <ListItemIcon></ListItemIcon>
+          <ListItemText primary="NEW Application" />
+        </ListItem>
           <ListItem button onClick={(e) => setfragment("ADD")}>
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Add New Customer" />

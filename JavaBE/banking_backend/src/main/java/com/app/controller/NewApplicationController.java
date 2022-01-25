@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dao.NewApplicationRepository;
-import com.app.pojos.NewApplication;
+import com.app.entity.NewApplication;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController

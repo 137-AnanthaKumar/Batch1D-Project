@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 import com.app.dao.CustomerRepository;
 import com.app.dao.SavingsAccountRepository;
 import com.app.dao.SavingsTransactionRepository;
-import com.app.pojos.SavingsAccount;
-import com.app.pojos.SavingsTransaction;
+import com.app.entity.SavingsAccount;
+import com.app.entity.SavingsTransaction;
 import com.app.service.Interfaces.ITransactionService;
 
 @Service      				// to tell sc that this is a service class(business logic )

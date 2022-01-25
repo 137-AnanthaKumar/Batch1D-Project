@@ -20,7 +20,7 @@ const ListTransaction = (props) => {
   useEffect(() => {}, [error, response, loading]);
 
   return (
-    <Card className={"border border-dark bg-dark text-white"}>
+    <Card className={"border border-dark bg-white text-dark"}>
       <Card.Header>List Of All Transaction</Card.Header>
       <Card.Body>
         <div>

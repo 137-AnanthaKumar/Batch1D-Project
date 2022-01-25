@@ -2,7 +2,7 @@ package com.app.service.Interfaces;
 
 import java.util.List;
 
-import com.app.pojos.Customer;
+import com.app.entity.Customer;
 
 public interface ICustomerService {
 	List<Customer> getAllCustomers();

@@ -26,7 +26,7 @@ import {
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
 
-export const submitform = (
+export const NewApplication = (
   fullname,
   date,
   email,
@@ -54,7 +54,7 @@ export const submitform = (
       }
     
     console.log(body);
-    const url = "http://localhost:8080/ebanking/customer/create";
+    const url = "http://localhost:8080/ebanking/newapplication/create";
     axios
       .post(url, body, header)
       .then((response) => {

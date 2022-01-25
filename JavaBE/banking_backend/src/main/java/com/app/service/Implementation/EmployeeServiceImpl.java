@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import com.app.pojos.Employee;
 import com.app.dao.EmployeeRepository;
+import com.app.entity.Employee;
 import com.app.service.Interfaces.IEmployeeService;
 
 @Service
