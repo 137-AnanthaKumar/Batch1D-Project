@@ -19,16 +19,16 @@ const CustLogin = (props) => {
     dispatch(CustSignin(email, password));
   };
 
-  // useEffect(() => {
-  //   if (response && response.email === email) {
-  //     sessionStorage.setItem("customer", JSON.stringify(response));
-  //     props.history.push("/custhome");
-  //   } else if (response && response.status === "error") {
-  //     alert(response.error);
-  //   } else if (error) {
-  //     alert("Error: Please enter correct Credentials");
-  //   }
-  // }, [loading, error, response]);
+  useEffect(() => {
+    if (response && response.email === email) {
+      sessionStorage.setItem("customer", JSON.stringify(response));
+      props.history.push("/custhome");
+    } else if (response && response.status === "error") {
+      alert(response.error);
+    } else if (error) {
+      alert("Error: Please enter correct Credentials");
+    }
+  }, [loading, error, response]);
 
   return (
 <div className="mainclass">
