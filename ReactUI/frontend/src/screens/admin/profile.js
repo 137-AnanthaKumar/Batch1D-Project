@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <div>
       <Container className="text-white">
-        <Card className={'border border-dark bg-dark text-white'}>
+        <Card className={' text-dark'}>
           <Card.Header>Profile</Card.Header>
           <Card.Body>
             <h4>Personal Information</h4>

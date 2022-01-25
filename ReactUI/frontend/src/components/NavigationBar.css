@@ -9,18 +9,10 @@
     width: 60px;
     height: 30px;
     border-radius: 10px;
-   
-
-   
-
-}
-.homehover{
-    text-align: center;
-    width: 60px;
-    height: 30px;
-    background-color: blue;
-    color: aliceblue;
-    border-radius: 10px;
     text-decoration: none;
-
+    align-items: center;
+}
+Link{
+    text-decoration: none;
+ 
 }

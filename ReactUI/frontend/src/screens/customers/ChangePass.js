@@ -11,6 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ChangePass = (props) => {
   const [password, setPassword] = useState("");
+  const[oldpassword, setOldPassword]=useState("");
+  const[newpassword, setNewPassword]=useState("");
 
   const CustPassChange = useSelector((store) => store.CustPassChange);
   const { loading, error, response } = CustPassChange;
@@ -49,15 +51,43 @@ const ChangePass = (props) => {
   return (
     <div>
       <Container className="text-white">
-        <Card className={"border border-dark bg-dark text-white"}>
+        <Card className={"border border-dark bg-white text-dark"}>
           <Card.Header>Change Password</Card.Header>
           <Card.Body>
+          <div className="mb-3">
+              <label className="form-label"> Old Password</label>
+              <input
+                onChange={(e) => {
+                  setOldPassword(e.target.value);
+                }}
+                className="form-control"
+                type="password"
+                placeholder="********"
+                maxLength="8"
+                value={oldpassword}
+              />
+            </div>
             <div className="mb-3">
               <label className="form-label"> New Password</label>
               <input
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+              onChange={(e) => {
+                setNewPassword(e.target.value);
+              }}
+                
+                className="form-control"
+                type="password"
+                placeholder="********"
+                maxLength="8"
+                value={newpassword}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label"> Confirm New Password</label>
+              <input
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+                
                 className="form-control"
                 type="password"
                 placeholder="********"

@@ -1,6 +1,14 @@
 #text , span{
     color: rgb(81, 255, 0);
 }
+.miniheader{
+    background-color: rgb(247, 231, 234);
+    color: red;
+    
+    margin-left: -15px;
+    width: 1140px;
+    height: 24px;
+}
 #head1{
     color: rgb(112, 29, 29);
     padding: 15px;
@@ -17,7 +25,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: fixed;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+.applyline{
+    background-color: rgb(247, 231, 234);
+    color: red;
+    
+    margin-left: 100px;
+    width: 500px;
+    height: 20px;
 }
 
 h5{

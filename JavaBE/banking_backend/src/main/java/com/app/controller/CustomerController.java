@@ -31,7 +31,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 @RequestMapping("/customer")
 public class CustomerController {
 
-// dependency of controller is service layer so inject that
 	@Autowired
 	private ICustomerService customerService;
 

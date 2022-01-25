@@ -95,4 +95,4 @@ const ChangeMob = (props) => {
     </div>
   );
 };
-export default ChangeMob;
+

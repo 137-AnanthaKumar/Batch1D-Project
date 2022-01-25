@@ -11,9 +11,15 @@ class Welcome extends Component {
   render() {
     return (
       <Container className="mainbg">
+      <div className="miniheader">  <marquee width="100%" direction="left" height="60px" ><p>For added security of your accounts, 
+      mandatory login password change after 180 days has been introduced.   |   Now You can make 
+      International Fund Transfers up to Rs. 18 lakhs from the comfort of your home. 
+      Please visit Payment/Transfers – International Fund Transfers – Foreign Currency 
+      transfer/Remittance section.</p></marquee></div>
+
       <div className="BankName"> <center><h1 id="head1">WELCOME TO OUR KNST BANK</h1></center></div>
         <div className="text-primary">
-          <marquee width="100%" direction="left" height="100px">
+          <marquee margin-left="100px" width="65%" direction="left" height="100px">
           <h5 id="marquee">Are You Ready For Join With Our Bank 
           <Link to="/applynew" > <span>Apply Now</span></Link></h5>
           </marquee>
@@ -65,10 +71,16 @@ class Welcome extends Component {
                 </Card.Body>
               </Card>
             </div>
+
+            
+
+
+
           </div>
           <br />
           <br />
         </div>
+        
       </Container>
     );
   }

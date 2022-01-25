@@ -20,8 +20,61 @@ import {
   CUST_TRANS_LIST_SUCCESS,
   CUST_TRANS_LIST_FAIL,
   CUST_TRANS_LIST_REQUEST,
+  CUST_NEW_CUST_REQUEST,
+  CUST_NEW_CUST_SUCCESS,
+  CUST_NEW_CUST_FAIL
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
+
+export const submitform = (
+  fullname,
+  date,
+  email,
+  title,
+  mobile,
+  aadhar
+) => {
+  return (dispatch) => {
+    dispatch({
+      type: CUST_NEW_CUST_REQUEST,
+    });
+
+    const header = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = {
+      fullname,
+      date,
+      email,
+      title,
+      mobile,
+      aadhar
+      }
+    
+    console.log(body);
+    const url = "http://localhost:8080/ebanking/customer/create";
+    axios
+      .post(url, body, header)
+      .then((response) => {
+        dispatch({
+          type: CUST_NEW_CUST_SUCCESS,
+          payload: response.data,
+         });
+     
+      })
+      .catch((error) => {
+        dispatch({
+          type:CUST_NEW_CUST_FAIL,
+          payload: error,
+        });
+      });
+  };
+};
+
+
+
 
 export const CustSignin = (email, password) => {
   return (dispatch) => {
