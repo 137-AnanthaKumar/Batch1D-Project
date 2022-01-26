@@ -88,7 +88,7 @@ const AddCustomer = (props) => {
         <Card.Body>
           <Form.Row>
             <Form.Group as={Col}>
-              <label className="form-label">Account Number</label>
+              <label className="form-label text-white">Account Number</label>
               <input
                 onChange={(e) => {
                   setAccountNumber(e.target.value);
@@ -102,7 +102,7 @@ const AddCustomer = (props) => {
             </Form.Group>
 
             <Form.Group as={Col}>
-              <label className="form-label">First Name</label>
+              <label className="form-label text-white">First Name</label>
               <input
                 onChange={(e) => {
                   setFirstName(e.target.value);
@@ -117,7 +117,7 @@ const AddCustomer = (props) => {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col}>
-              <label className="form-label">Account Balance</label>
+              <label className="form-label text-white">Account Balance</label>
               <input
                 onChange={(e) => {
                   setAccountBalance(e.target.value);
@@ -131,7 +131,7 @@ const AddCustomer = (props) => {
             </Form.Group>
 
             <Form.Group as={Col}>
-              <label className="form-label">Last Name</label>
+              <label className="form-label text-white">Last Name</label>
               <input
                 onChange={(e) => {
                   setLastName(e.target.value);
@@ -146,7 +146,7 @@ const AddCustomer = (props) => {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col}>
-              <label className="form-label">CIF Number</label>
+              <label className="form-label text-white">CIF Number</label>
               <input
                 onChange={(e) => {
                   setCIFNo(e.target.value);
@@ -160,7 +160,7 @@ const AddCustomer = (props) => {
             </Form.Group>
 
             <Form.Group as={Col}>
-              <label className="form-label">E-mail</label>
+              <label className="form-label text-white">E-mail</label>
               <input
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -174,7 +174,7 @@ const AddCustomer = (props) => {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col}>
-              <label className="form-label">Branch Name</label>
+              <label className="form-label text-white">Branch Name</label>
               <input
                 onChange={(e) => {
                   setBranchName(e.target.value);
@@ -188,7 +188,7 @@ const AddCustomer = (props) => {
             </Form.Group>
 
             <Form.Group as={Col}>
-              <label className="form-label">Mobile Number</label>
+              <label className="form-label text-white">Mobile Number</label>
               <input
                 onChange={(e) => {
                   setMobileNo(e.target.value);
@@ -204,7 +204,7 @@ const AddCustomer = (props) => {
 
           <Form.Row>
             <Form.Group as={Col}>
-              <label className="form-label">IFSC Code</label>
+              <label className="form-label text-white">IFSC Code</label>
               <input
                 onChange={(e) => {
                   setIfscCode(e.target.value);

@@ -1,26 +1,31 @@
 .customer{
     background-color: orange;
-    color: blueviolet;
+    color: brown;
     width: 300px;
     margin-left: 800px;
     margin-top: 50px;
     position:absolute;
-
     
 }
 .mainclass{
     display: block;
 }
 #head1{
-    color: blueviolet;
+    /* color: blueviolet; */
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
 }
 .dataclass{
   width: 700px;
   height: 600px;
   background-color: white;
-  color: blue;
+  color: teal;
   border-color: orange;
   font-size:medium;
   border-radius: 10px;
   border: none;
+}
+.icici-link{
+    color: tomato;
 }

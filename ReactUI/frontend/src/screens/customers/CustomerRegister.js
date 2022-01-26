@@ -44,10 +44,10 @@ const CustRegs = (props) => {
 
   useEffect(() => {
     if (response && response === "Registered Succesfully..!!") {
-      // sessionStorage.setItem('token', response.data.token)
-      // alert(
-      //   "Your Registration is successfully completed !! Please activate your account through your registered Email"
-      // );
+      sessionStorage.setItem('token', response.data.token)
+      alert(
+        "Your Registration is successfully completed !! Please activate your account through your registered Email"
+      );
       clearForm();
       toast.success(
         "Your Registration is Successfully Completed ..!! Please Activate your Account through your Registered Email",

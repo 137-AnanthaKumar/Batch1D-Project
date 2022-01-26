@@ -45,11 +45,14 @@ const CustProfile = (props) => {
     Here You Are In welcome Page .You Can Make Transaction To Your Payee...
     </li><br></br>
     <li style={{color:"orange"}}>
-    Here You Are In welcome Page .You Can Make Transaction To Your Payee...
+    Coral Credit Card: Joining fee 500 + GST. Earn up to 10,000 additional reward points. Apply for it now.
     </li><br></br>
     <li style={{color:"green"}}>
-    Here You Are In welcome Page .You Can Make Transaction To Your Payee...</li>
-   
+    Resolution Framework 2.0 as per RBI Guidelines for COVID-19 related stress.
+    </li><br></br> 
+    <li style={{color:"blue"}}>
+    Get Education loan, Housing Loans, Personal Loans at just 6.5%
+    </li>  
     
     </ul>
     </div>

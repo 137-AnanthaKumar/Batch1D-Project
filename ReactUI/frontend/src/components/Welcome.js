@@ -17,19 +17,19 @@ class Welcome extends Component {
       Please visit Payment/Transfers – International Fund Transfers – Foreign Currency 
       transfer/Remittance section.</p></marquee></div>
 
-      <div className="BankName"> <center><h1 id="head1">WELCOME TO OUR KNST BANK</h1></center></div>
+      <div className="BankName"> <center><h1 id="head1">WELCOME TO KNST BANK</h1></center></div>
         <div className="text-primary">
           <marquee margin-left="100px" width="65%" direction="left" height="100px">
-          <h5 id="marquee">Are You Ready For Join With Our Bank 
+          <h5 id="marquee">Join our Net-Banking just by clicking here 
           <Link to="/applynew" > <span>Apply Now</span></Link></h5>
           </marquee>
         </div>
        
       <br/>
       <div className="textitems">
-        <h6 id="text">  <p id="para"> <Link to="/custlogin" >
-        Log in
-      </Link> to KNST Bank Internet Banking
+        <h6 id="text">  <p id="para"> <Link to="/custlogin" className="login-link">
+        <em>Log in</em>
+      </Link> to KNST Bank Internet Banking.
        Manage your finances conveniently and securely with KNST Bank Internet Banking, 
        right from the comfort of your home or your office. Getting started with our 
         Internet Banking portal is simple. All you need is your user ID and password to use 
@@ -42,11 +42,11 @@ class Welcome extends Component {
               {" "}
               <Card className="loginbox">
                 <Card.Body>
-                  <Card.Title>Login Now</Card.Title>
+                  <Card.Title>Login to Net-Banking</Card.Title>
                   <Card.Text>
                     <div>
                       <Link to="/custlogin" className="nav-link">
-                        Login NetBanking
+                        Login Now
                       </Link>
                     </div>
                   </Card.Text>
@@ -57,7 +57,7 @@ class Welcome extends Component {
             <div className="col-sm-3 ">
               <Card className="registerbox">
                 <Card.Body>
-                  <Card.Title>New To NetBanking?</Card.Title>
+                  <Card.Title>New To Net-Banking?</Card.Title>
                   <Card.Text>
                     <div>
                       <Link
@@ -71,11 +71,6 @@ class Welcome extends Component {
                 </Card.Body>
               </Card>
             </div>
-
-            
-
-
-
           </div>
           <br />
           <br />

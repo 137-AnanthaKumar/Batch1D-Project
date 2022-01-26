@@ -87,7 +87,7 @@ const CustLogin = (props) => {
           <li>
           As per RBI guidelines, Real-Time
            Gross Settlement (RTGS) is available 24x7 with effect from 
-           Dec 14, 2020. Please <a href="https://www.icicibank.com/Personal-Banking/onlineservice/
+           Dec 14, 2020. Please <a class="icici-link" href="https://www.icicibank.com/Personal-Banking/onlineservice/
            online-services/FundsTransfer/neft-rtgs.page">click here</a> for details.
           </li><br></br>
           <li>

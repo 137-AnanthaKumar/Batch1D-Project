@@ -12,7 +12,6 @@
 #head1{
     color: rgb(112, 29, 29);
     padding: 15px;
-    background-color: aliceblue;
     border-radius: 40px;
 }
 .registerbox , .loginbox {
@@ -40,7 +39,6 @@ h5{
     color: whitesmoke;
 }
 .BankName{
-    background-color: orange;
     border-radius: 50px;
     width: 800px;
     align-items: center;
@@ -51,7 +49,6 @@ h5{
 }
 .BankName:hover{
     color: orange;
-    background-color: brown;
 }
 .textitems{
     background-color: aliceblue;
@@ -59,5 +56,13 @@ h5{
     padding: 10px;
 }
 #para{
-    color: blue;
+    color: brown;
+}
+.login-link{
+    color: tomato;
+}
+.nav-link{
+    font-size: 16px;
+    color:brown;
+    font-weight: bold;
 }

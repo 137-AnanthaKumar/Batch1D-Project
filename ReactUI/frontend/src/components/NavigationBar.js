@@ -17,10 +17,9 @@ const NavigationBar = (props) => {
        
         <ul class="nav navbar-nav">
          
-          <li><a href="#">page1</a></li>
-          |
-          <li><a href="#">Page 2</a></li>|
-          <li><a href="#">Page 3</a></li>
+          <li><a href="#">Loans &nbsp;</a></li> | &nbsp;
+          <li><a href="#">Invest &nbsp;</a></li> | &nbsp;
+          <li><a href="#">FD</a></li>
         </ul>
       </div>
     </nav>
