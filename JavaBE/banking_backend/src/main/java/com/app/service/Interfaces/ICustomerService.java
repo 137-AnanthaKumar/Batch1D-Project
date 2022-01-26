@@ -6,6 +6,7 @@ import com.app.entity.Customer;
 
 public interface ICustomerService {
 	List<Customer> getAllCustomers();
+	//contiong
 	void deleteCustomer(int id);
 	Customer findByEmail(String email);
 	boolean addCustomer(Customer customer);

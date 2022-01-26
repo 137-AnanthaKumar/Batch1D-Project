@@ -39,6 +39,7 @@ const AddCustomer = (props) => {
  
 
   const onaddCust = () => {
+    
     dispatch(
       addCust(
         accountNumber,

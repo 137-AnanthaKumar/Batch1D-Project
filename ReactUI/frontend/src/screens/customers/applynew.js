@@ -20,7 +20,7 @@ const Applynew =(props)=> {
 
   const dispatch = useDispatch();
   // const newApplication = useSelector((store) => store.NewApplication);
-  // const { loading, error, response } = newApplication;
+  // const { loading, error, response } = "welcome";
   // toast.configure();
 
   const clearform=()=>{
@@ -35,7 +35,11 @@ const Applynew =(props)=> {
   }
 
   const submitform=()=>{
+    
+    // console.log("input mobile no")
+    // console.log(mobile)
     dispatch(
+      
       NewApplication(
         fullname,
         date,
@@ -47,7 +51,7 @@ const Applynew =(props)=> {
       )
     );
     
-  }
+  };
   // useEffect(() => {
   //   if (response && response === "Successfully submited..!") {
       

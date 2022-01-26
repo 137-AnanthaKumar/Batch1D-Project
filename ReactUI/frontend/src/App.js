@@ -27,7 +27,7 @@ function App() {
             <Route path="/adminlogin" exact component={AdminLogin} />
 
             
-           <Route path="/approve" exact component={Approve}/>
+            <Route path="/approve" exact component={Approve}/>
             <Route path="/adminhome" exact component={adminHome} />
             <Route path="/applynew" exact component={applynew}/>
             <Route path="/" exact component={Welcome} />

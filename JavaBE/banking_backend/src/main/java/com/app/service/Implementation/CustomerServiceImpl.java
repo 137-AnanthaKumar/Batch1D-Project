@@ -20,7 +20,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
 	private CustomerRepository customerRepo; //Dao layer interface injected
-
+//Customer c=new Customer();
 	// for register
 		@Override
 		public boolean addCustomer(Customer customer) {

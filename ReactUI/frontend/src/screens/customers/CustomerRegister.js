@@ -81,7 +81,7 @@ const CustRegs = (props) => {
                 maxLength="8"
                 placeholder="******"
                 value={password}
-                className="form-control text-white"
+                className="form-control text-dark"
               />
             </Form.Group>
 
@@ -94,7 +94,7 @@ const CustRegs = (props) => {
                 type="email"
                 value={email}
                 placeholder="please enter Registered Email"
-                className="form-control  text-white"
+                className="form-control  text-dark"
               />
             </Form.Group>
           </Form.Row>
@@ -109,7 +109,7 @@ const CustRegs = (props) => {
                 maxLength="10"
                 value={mobileNo}
                 placeholder="please enter Registered mobile number"
-                className="form-control  text-white"
+                className="form-control  text-dark"
               />
             </Form.Group>
 
@@ -123,7 +123,7 @@ const CustRegs = (props) => {
                 maxLength="10"
                 value={accountNumber}
                 placeholder="please enter Account number given by Bank"
-                className="form-control  text-white"
+                className="form-control  text-dark"
               />
             </Form.Group>
           </Form.Row>
@@ -138,7 +138,7 @@ const CustRegs = (props) => {
                 value={branchName}
                 maxLength="20"
                 placeholder="please enter your Branch Name"
-                className="form-control  text-white"
+                className="form-control  text-dark"
               />
             </Form.Group>
 
@@ -152,7 +152,7 @@ const CustRegs = (props) => {
                 maxLength="11"
                 value={ifscCode}
                 placeholder="please enter your banks IFSC code"
-                className="form-control  text-white"
+                className="form-control  text-dark"
               />
             </Form.Group>
           </Form.Row>

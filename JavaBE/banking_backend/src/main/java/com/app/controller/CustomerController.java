@@ -39,15 +39,16 @@ public class CustomerController {
 	@Autowired
 	private EmailServiceImpl email;
 
-	public CustomerController() {
-		System.out.println("inside ctor of CustomerController " + getClass().getName());
-	}
+//	public CustomerController() {
+//		System.out.println("inside ctor of CustomerController " + getClass().getName());
+//	}
 
 	@GetMapping("/activate/{id}")
 	public ResponseEntity<?> activate(@PathVariable int id) {
 		Customer c = customerService.activateAccount(id);
 		System.out.println(c);
 		return new ResponseEntity<>(HttpStatus.OK);
+		//Customer c=new Customer(id)
 	}
 
 	// Login api
@@ -63,20 +64,20 @@ public class CustomerController {
 
 	}
 
-	@PutMapping("/updateEmail/{customerId}") 
-	public String updateEmail(@PathVariable int customerId , @RequestBody ObjectNode json) {// String email
-		return customerService.updateEmail(customerId, json.get("email").asText());
-	}
+//	@PutMapping("/updateEmail/{customerId}") 
+//	public String updateEmail(@PathVariable int customerId , @RequestBody ObjectNode json) {// String email
+//		return customerService.updateEmail(customerId, json.get("email").asText());
+//	}
 
 	@PutMapping("/updatePassword/{customerId}")
 	public String updatePassword(@PathVariable int customerId, @RequestBody ObjectNode json) {
 		return customerService.updatePassword(customerId, json.get("password").asText());
 	}
 
-	@PutMapping("/updateMobileNumber/{customerId}")
-	public String updateMobileNumber(@PathVariable int customerId, @RequestBody ObjectNode json) {
-		return customerService.updateMobileNumber(customerId, json.get("mobileNo").asText());
-	}
+//	@PutMapping("/updateMobileNumber/{customerId}")
+//	public String updateMobileNumber(@PathVariable int customerId, @RequestBody ObjectNode json) {
+//		return customerService.updateMobileNumber(customerId, json.get("mobileNo").asText());
+//	}
 
 	@PostMapping("/register")
 	public ResponseEntity<?> insertData(@RequestBody RegistrationFormData reg) {

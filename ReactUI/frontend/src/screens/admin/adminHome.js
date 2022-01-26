@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+   
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
   },
@@ -109,7 +109,7 @@ export default function PersistentDrawerLeft(props) {
         return <ListCustomer />;
       case "LIST_TRANS":
         return <ListTransaction />;
-        case "LIST_NEWAPPLICATION":
+      case "LIST_NEWAPPLICATION":
           return <Approve />;
       default:
         break;
