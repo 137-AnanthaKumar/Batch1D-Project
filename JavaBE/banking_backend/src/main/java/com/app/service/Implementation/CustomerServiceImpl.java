@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.CustomerRepository;
+import com.app.dao.NewApplicationRepository;
 import com.app.entity.Customer;
+import com.app.entity.NewApplication;
 import com.app.service.Interfaces.ICustomerService;
 
 //Customer Service Implementation 
@@ -19,21 +21,24 @@ import com.app.service.Interfaces.ICustomerService;
 public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
-	private CustomerRepository customerRepo; //Dao layer interface injected
+	private CustomerRepository customerRepo;
+	
+	@Autowired
+	private NewApplicationRepository repo;
 //Customer c=new Customer();
-	// for register
+	
 		@Override
 		public boolean addCustomer(Customer customer) {
 			Optional<Customer> optional=customerRepo.findByEmailAndMobileNo(customer.getEmail(), customer.getMobileNo());
 			System.out.println("optional of cust is "+optional);	
 			if(!optional.isPresent())
 			{
-				System.out.println("inside if(optional==null)");
+//			
 					return false;
 			}
 			else
 				{
-					System.out.println("inside else of if(optional==null)");
+					
 					Customer c=optional.get();
 					
 					c.setPassword(customer.getPassword());
@@ -47,7 +52,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	
 	
-	//list of customer
+	
 	@Override
 	public List<Customer> getAllCustomers() {
 		return customerRepo.findAll();
@@ -71,14 +76,14 @@ public class CustomerServiceImpl implements ICustomerService {
 		c.getSavingsAccount().setIsNetBankingActive((byte)1);
 		return null;
 	}
-	// for login
+	
 		@Override
 		public Customer getCustomerDetails(String email, String password) {
 			
 		Optional<Customer> optional= customerRepo.customerAuthentication(email,password);   // calling customerrepository's method
 			//Optional<Customer> optional= customerRepo.findByEmail(email); 
 			if(optional.isPresent()) {
-				System.out.println(optional.get());
+				
 				return optional.get();
 			}else
 				return null;
@@ -126,7 +131,7 @@ public class CustomerServiceImpl implements ICustomerService {
 }
 	@Override
 	public Customer getCustomer(int id) {
-		System.out.println("inside CustomerService impl");
+		
 		Optional<Customer>optional= customerRepo.findById(id);
 		if(optional.isPresent())
 		{
@@ -141,6 +146,24 @@ public class CustomerServiceImpl implements ICustomerService {
 		Customer c= customerRepo.findById(id).get();
 		c.getSavingsAccount().setIsNetBankingActive((byte)1);
 		return null;
+	}
+
+
+
+
+	@Override
+	public List<NewApplication> findAll() {
+		
+		return null;
+	}
+
+
+
+
+	@Override
+	public NewApplication save(NewApplication accountopen) {
+		
+		return repo.save(accountopen) ;
 	}
 
 

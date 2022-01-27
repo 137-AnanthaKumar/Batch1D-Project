@@ -83,7 +83,7 @@ const AddCustomer = (props) => {
 
   return (
     <div>
-      <Card className={"border border-dark bg-dark text-white"}>
+      <Card className={"border border-blue bg-dark text-white"}>
         <Card.Header>Add New Customer</Card.Header>
         <Card.Body>
           <Form.Row>

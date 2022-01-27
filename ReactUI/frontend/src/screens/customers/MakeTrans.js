@@ -34,22 +34,16 @@ const CustomerFundTransfer = (props) => {
 
   useEffect(() => {
     if (response === "Transaction done Successfully") {
-      // sessionStorage.setItem("customer", JSON.stringify(response));
-      //alert("Success: Transaction successful..!!");
+   
       toast.success("Transaction successful..!!", { autoClose: 2000 });
       clearForm();
-      //<Redirect to="/custhome" />;
+    
     } else if (response != "Transaction done Successfully") {
-      //alert(response.error);
+      
       toast.error(response, {
         autoClose: 3000,
       });
-    } //else if (error) {
-    //   //alert(error);
-    //   toast.error("Transaction Fail", {
-    //     autoClose: 1500,
-    //   });
-    // }
+    }
   }, [loading, error, response]);
 
   return (

@@ -3,6 +3,7 @@ package com.app.service.Interfaces;
 import java.util.List;
 
 import com.app.entity.Customer;
+import com.app.entity.NewApplication;
 
 public interface ICustomerService {
 	List<Customer> getAllCustomers();
@@ -18,6 +19,8 @@ public interface ICustomerService {
 	String updateMobileNumber(int id,String mobileNo);
 	Customer getCustomer(int id);
 	Customer findById(int id);
+	List<NewApplication> findAll();
+	NewApplication save(NewApplication accountopen);
 
 	
 	

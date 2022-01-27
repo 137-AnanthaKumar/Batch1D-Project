@@ -2,7 +2,8 @@ import React from 'react';
 
 function RegisterPayee() {
   return <div>
-  Register Payee Page
+ 
+     Register Payee Page
   </div>;
 }
 

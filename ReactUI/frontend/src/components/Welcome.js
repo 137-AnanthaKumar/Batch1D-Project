@@ -17,7 +17,12 @@ class Welcome extends Component {
       Please visit Payment/Transfers – International Fund Transfers – Foreign Currency 
       transfer/Remittance section.</p></marquee></div>
 
-      <div className="BankName"> <center><h1 id="head1">WELCOME TO KNST BANK</h1></center></div>
+      <div className="BankName"> <center>
+      <h1 id="head1">WELCOME TO
+      <span style={{color:"orange"}}> K</span>
+      <span style={{color:"blue"}}>N</span>
+      <span style={{color:"orange"}}>S</span>
+      <span style={{color:"blue"}}>T</span> BANK</h1></center></div>
         <div className="text-primary">
           <marquee margin-left="100px" width="65%" direction="left" height="100px">
           <h5 id="marquee">Join our Net-Banking just by clicking here 

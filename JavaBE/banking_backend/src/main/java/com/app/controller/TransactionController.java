@@ -16,18 +16,16 @@ import com.app.service.Interfaces.ITransactionService;
 public class TransactionController {
 
 	@Autowired
-	private ITransactionService its;
+	private ITransactionService transservics;
 	
-	public TransactionController() {
-		System.out.println("in ctor "+getClass().getName());
-	}
+
 	
 
 	@PostMapping
 	public String fundsTransfer(@RequestBody TransactionDTO transactionDTO )
 	{
-		System.out.println("transactionDTO : "+transactionDTO);
-		return its.betweenAccountsTransfer(transactionDTO.getSenderAccountNo(), transactionDTO.getReciverAccountNo(), transactionDTO.getAmount());
+		
+		return transservics.betweenAccountsTransfer(transactionDTO.getSenderAccountNo(), transactionDTO.getReciverAccountNo(), transactionDTO.getAmount());
 	}
 
 }

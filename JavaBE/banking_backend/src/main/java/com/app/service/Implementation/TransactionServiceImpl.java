@@ -49,8 +49,8 @@ public class TransactionServiceImpl implements ITransactionService {
 				{
 					SavingsTransaction transaction1=new SavingsTransaction(LocalDate.now(),LocalTime.now(), "from "+senderAccountNo+" to "+receiverAccountNo+" ", "Debit", amount, senderAccount.getAccountBalance(),senderAccount);
 					SavingsTransaction transaction2=new SavingsTransaction(LocalDate.now(),LocalTime.now(),"from "+receiverAccountNo +" to "+senderAccountNo+" ", "Credit", amount, receiverAccount.getAccountBalance(),receiverAccount);
-					transaction1=savingsTransactionRepo.save(transaction1);//(new SavingsTransaction(LocalDate.now(),LocalTime.now(), "from "+senderAccountNo+" to "+receiverAccountNo+" ", "Debit", amount, senderAccount.getAccountBalance(),senderAccount));
-					transaction2=savingsTransactionRepo.save(transaction2);//(new SavingsTransaction(LocalDate.now(),LocalTime.now(),"from "+receiverAccountNo +" to "+senderAccountNo+" ", "Credit", amount, receiverAccount.getAccountBalance(),receiverAccount));
+					transaction1=savingsTransactionRepo.save(transaction1);
+					transaction2=savingsTransactionRepo.save(transaction2);
 					senderAccount.addTransaction(transaction1);
 					receiverAccount.addTransaction(transaction2);
 					return "Transaction done Successfully";

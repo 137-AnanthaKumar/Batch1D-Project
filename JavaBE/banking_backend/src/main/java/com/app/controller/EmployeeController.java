@@ -45,12 +45,12 @@ public class EmployeeController {
 	@Autowired
 	private ITransactionService transactionService;
 	
-	//admin login
+	
 	@PostMapping("/login")
 	public ResponseEntity<?> fetchDetails(@RequestBody Employee e) {
 		if((e = employeeService.login(e.getEmail(),e.getPassword())) != null)
 		{
-			System.out.println("in admin login "+e);
+//			System.out.println("in admin login "+e);
 			return ResponseEntity.ok(e); 
 		}
 		else {
@@ -74,7 +74,7 @@ public class EmployeeController {
 	//list of customers
 	@GetMapping("/customerList")
 	public List<Customer> fetchAllCustomers() {
-		System.out.println("in fetch all customer ");
+		
 		return customerService.getAllCustomers();
 	}
 	
@@ -88,16 +88,14 @@ public class EmployeeController {
 	@PostMapping("/addAccount")
 	public ResponseEntity<?> addAccountDetails(@RequestBody SavingsAccount account)
 	{
-		System.out.println("customer data : "+account);
+		
 		savingsAccountService.addAccountDetails(account);
 		return ResponseEntity.ok("Successfully Added..!");
 	}
 	
-	//List of Transactions
 	@GetMapping("/listOfTransactions")
 	public List<SavingsTransaction> fetchAllTransactions()
 	{
-		System.out.println("inside CustomerController::fetch all Transactions");
 		return transactionService.getAllTransactions();
 	}
 }

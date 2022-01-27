@@ -39,9 +39,7 @@ public class CustomerController {
 	@Autowired
 	private EmailServiceImpl email;
 
-//	public CustomerController() {
-//		System.out.println("inside ctor of CustomerController " + getClass().getName());
-//	}
+
 
 	@GetMapping("/activate/{id}")
 	public ResponseEntity<?> activate(@PathVariable int id) {
@@ -51,7 +49,7 @@ public class CustomerController {
 		//Customer c=new Customer(id)
 	}
 
-	// Login api
+	
 	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> fetchDetails(@RequestBody Customer c) {
 //		Customer cust = new Customer();
@@ -64,10 +62,6 @@ public class CustomerController {
 
 	}
 
-//	@PutMapping("/updateEmail/{customerId}") 
-//	public String updateEmail(@PathVariable int customerId , @RequestBody ObjectNode json) {// String email
-//		return customerService.updateEmail(customerId, json.get("email").asText());
-//	}
 
 	@PutMapping("/updatePassword/{customerId}")
 	public String updatePassword(@PathVariable int customerId, @RequestBody ObjectNode json) {

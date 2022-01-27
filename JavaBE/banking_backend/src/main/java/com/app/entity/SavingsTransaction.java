@@ -117,10 +117,10 @@ public class SavingsTransaction {
 		this.availableBalance = availableBalance;
 	}
 
-	@Override
-	public String toString() {
-		return "SavingsTransaction [id=" + id + ", date=" + date + ", time=" + time + ", description=" + description
-				+ ", type=" + type + ", amount=" + amount + ", availableBalance=" + availableBalance + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "SavingsTransaction [id=" + id + ", date=" + date + ", time=" + time + ", description=" + description
+//				+ ", type=" + type + ", amount=" + amount + ", availableBalance=" + availableBalance + "]";
+//	}
 
 }

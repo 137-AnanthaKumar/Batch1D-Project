@@ -19,20 +19,20 @@ const Applynew =(props)=> {
   const[aadhar,setAadhar]=useState("");
 
   const dispatch = useDispatch();
-  // const newApplication = useSelector((store) => store.NewApplication);
-  // const { loading, error, response } = "welcome";
-  // toast.configure();
+  const newApplication = useSelector((store) => store.NewApplication);
+  const { loading, error, response } = "newApplication";
+  toast.configure();
 
-  const clearform=()=>{
-    setFullname("");
-    setdate("");
-    setPan("");
-    setEmail("");
-    setMobile("");
-    setTitle("");
-    setAadhar("");
+  // const clearform=()=>{
+  //   setFullname("");
+  //   setdate("");
+  //   setPan("");
+  //   setEmail("");
+  //   setMobile("");
+  //   setTitle("");
+  //   setAadhar("");
   
-  }
+  // }
 
   const submitform=()=>{
     
@@ -52,29 +52,29 @@ const Applynew =(props)=> {
     );
     
   };
-  // useEffect(() => {
-  //   if (response && response === "Successfully submited..!") {
+  useEffect(() => {
+    if (response && response === "Successfully submited..!") {
       
-  //     toast.success(
-  //       "Application Submission successful..!!",
-  //       { autoClose: 10000 }
-  //     );
-  //     clearform();
+      toast.success(
+        "Application Submission successful..!!",
+        { autoClose: 10000 }
+      );
+    
       
-  //   } else if (response && response.status === "error") {
+    } else if (response && response.status === "error") {
      
-  //     toast.error(response.error, {
-  //       autoClose: 10000,
-  //     });
-  //   } else if (error) {
+      toast.error(response.error, {
+        autoClose: 10000,
+      });
+    } else if (error) {
      
-  //     toast.error("Already have with this data!!!", {
-  //       autoClose: 3000,
-  //     });
-  //   }
-  // }, [loading, error, response]);
+      toast.error("Already have with this data!!!", {
+        autoClose: 3000,
+      });
+    }
+  }, [loading, error, response]);
 
-  // useEffect(() => {}, []);
+  useEffect(() => {}, []);
 
 
 
@@ -165,11 +165,14 @@ const Applynew =(props)=> {
   </div>
   <center>
   <button type="submit"  class="btn btn-primary" onClick={submitform} >Submit</button>
-  <button type="submit" class="btn btn-primary" onClick={clearform} >Clearform</button>
+   <button type="submit" class="btn btn-primary"  >Clearform</button>
+   
   </center>
+  
   
   <br></br>
 </form>
+ <div>{newApplication.loading && <div>waiting for response</div>}</div>
   </div>);
 }
 
