@@ -3,15 +3,19 @@ package com.app.service.Implementation;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.app.controller.CustomerController;
 import com.app.dao.CustomerRepository;
 import com.app.dao.NewApplicationRepository;
 import com.app.entity.Customer;
 import com.app.entity.NewApplication;
 import com.app.service.Interfaces.ICustomerService;
+
+import ch.qos.logback.classic.Logger;
 
 //Customer Service Implementation 
 
@@ -25,14 +29,18 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
 	private NewApplicationRepository repo;
+	
+	 private static final org.jboss.logging.Logger Logger=LoggerFactory.logger(CustomerServiceImpl.class);
 //Customer c=new Customer();
 	
 		@Override
 		public boolean addCustomer(Customer customer) {
 			Optional<Customer> optional=customerRepo.findByEmailAndMobileNo(customer.getEmail(), customer.getMobileNo());
-			System.out.println("optional of cust is "+optional);	
+//			System.out.println("optional of cust is "+optional);	
+			
 			if(!optional.isPresent())
 			{
+				   Logger.warn("Already User is Available");
 //			
 					return false;
 			}
@@ -111,6 +119,7 @@ public class CustomerServiceImpl implements ICustomerService {
 				Customer customer=optional.get();
 				customer.setPassword(password);
 				if(customerRepo.save(customer) != null)
+				Logger.info("password Ubdated Successfully"+customer.getPassword());
 				return "successfully updated password!!!";
 			}
 			return null;
@@ -135,7 +144,8 @@ public class CustomerServiceImpl implements ICustomerService {
 		Optional<Customer>optional= customerRepo.findById(id);
 		if(optional.isPresent())
 		{
-			System.out.println("Customer : "+ optional.get());
+			Logger.info("Customers "+optional.get());
+//			System.out.println("Customer : "+ optional.get());
 			return optional.get();
 		}
 			return null;

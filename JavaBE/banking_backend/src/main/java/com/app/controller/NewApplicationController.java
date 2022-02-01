@@ -15,7 +15,8 @@ import com.app.dao.NewApplicationRepository;
 import com.app.entity.NewApplication;
 import com.app.service.Interfaces.ICustomerService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
+
 @RestController
 @RequestMapping("/newapplication")
 public class NewApplicationController {

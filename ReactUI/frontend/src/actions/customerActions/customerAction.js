@@ -26,7 +26,7 @@ import {
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
 
-export const NewApplication = (
+export const newApplication = (
   fullname,
   date,
   email,

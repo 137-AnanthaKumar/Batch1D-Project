@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { NewApplication } from "../../actions/customerActions/customerAction.js";
+import { newApplication } from "../../actions/customerActions/customerAction.js";
 
 const Applynew =(props)=> {
   
@@ -19,8 +19,8 @@ const Applynew =(props)=> {
   const[aadhar,setAadhar]=useState("");
 
   const dispatch = useDispatch();
-  const newApplication = useSelector((store) => store.NewApplication);
-  const { loading, error, response } = "newApplication";
+  const NewApplication = useSelector((store) => store.NewApplication);
+  const { loading, error, response } = "NewApplication";
   toast.configure();
 
   // const clearform=()=>{

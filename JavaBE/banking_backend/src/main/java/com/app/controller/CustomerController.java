@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,8 @@ import com.app.service.Interfaces.ICustomerService;
 import com.app.service.Interfaces.ISavingsAccountService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import ch.qos.logback.classic.Logger;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/customer")
@@ -38,15 +41,17 @@ public class CustomerController {
 	private ISavingsAccountService savingsAccountService;
 	@Autowired
 	private EmailServiceImpl email;
-
-
+ private static final org.jboss.logging.Logger Logger=LoggerFactory.logger(CustomerController.class);
+  
 
 	@GetMapping("/activate/{id}")
 	public ResponseEntity<?> activate(@PathVariable int id) {
 		Customer c = customerService.activateAccount(id);
-		System.out.println(c);
+//		System.out.println(c);
+		Logger.info("customer details"+c);
+		
 		return new ResponseEntity<>(HttpStatus.OK);
-		//Customer c=new Customer(id)
+		
 	}
 
 	
@@ -55,9 +60,14 @@ public class CustomerController {
 //		Customer cust = new Customer();
 		System.out.println("in fetch customer email : " + c.getEmail() + "	password : " + c.getPassword());
 		if ((c = customerService.getCustomerDetails(c.getEmail(), c.getPassword())) != null) {
+			Logger.info("User Logged IN "+c.getEmail());
 			return ResponseEntity.ok(c);
+			
 		} else {
+			Customer cust = new Customer();
+			Logger.warn("User Not Found " +cust.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
 		}
 
 	}
@@ -65,6 +75,7 @@ public class CustomerController {
 
 	@PutMapping("/updatePassword/{customerId}")
 	public String updatePassword(@PathVariable int customerId, @RequestBody ObjectNode json) {
+		Logger.info("Password Ubdated");
 		return customerService.updatePassword(customerId, json.get("password").asText());
 	}
 
@@ -82,37 +93,48 @@ public class CustomerController {
 
 		if (i == (byte) 1)
 			return ResponseEntity.ok("Already registered");
-		else {
-			try {
-				email.sendMail(c);
-			} catch (MessagingException e) {
+		else if(i == (byte) 0){
+//			try {
+//				email.sendMail(c);
+//			} catch (MessagingException e) {
+//
+//				e.printStackTrace();
+//				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//			}
+			savingsAccountService.addSA(sa);
+			Logger.info("NetBanking Activation Completed for "+customer.getEmail());
+			
+			
+			
+			
 
-				e.printStackTrace();
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-			}
-
-			if (customerService.addCustomer(customer)) {
-				
-				return ResponseEntity.ok("Registered Succesfully..!!");
-				
-			}
+//			if (customerService.addCustomer(customer)) {
+//				// if(str=="Already registered")
+//				// return new ResponseEntity<>(HttpStatus.FOUND); // status: 302
+//				// else if(str=="Registered")
+//				return ResponseEntity.ok("Registered Succesfully..!!");
+//				// return ResponseEntity.ok(c); // successfully registered // status: 200
+//			}
 		}
-		
+		// }
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-	
+		
 	
 	@GetMapping("/getProfile")
 	public SavingsAccount getCustomerProfile(@RequestParam int id)
 	{
 		SavingsAccount s1=customerService.getCustomer(id).getSavingsAccount();
+		Logger.info(" Got A User Profile "+s1.getAccountId() +s1.getAccountNumber()+  s1.getAccountBalance());
 		return new SavingsAccount(s1.getAccountId(), s1.getAccountNumber(), s1.getAccountBalance(),s1.getCifNo(), s1.getBranchName(),
 				s1.getIfscCode(), s1.getCustomer());
 	}
 	
 	@GetMapping("/getTransaction/{customerId}")
 	public List<SavingsTransaction> getTransactionByCustomerId(@PathVariable int customerId)
+	
 	{
+		Logger.info(" Got Transaction Details ");
 		return customerService.getCustomer(customerId).getSavingsAccount().getSavingsTransactionList();
 	}
 

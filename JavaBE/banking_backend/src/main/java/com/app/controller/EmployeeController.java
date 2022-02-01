@@ -2,6 +2,7 @@ package com.app.controller;
 
 import java.util.List;
 
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,8 @@ import com.app.service.Interfaces.ITransactionService;
 @RequestMapping("/Employee")
 public class EmployeeController {
 	
+	 private static final org.jboss.logging.Logger Logger=LoggerFactory.logger(EmployeeController.class);
+	
 	public EmployeeController() {
 		System.out.println("inside ctor of  " + getClass().getName());
 	}
@@ -51,9 +54,12 @@ public class EmployeeController {
 		if((e = employeeService.login(e.getEmail(),e.getPassword())) != null)
 		{
 //			System.out.println("in admin login "+e);
+			Logger.info("Admin: "+e.getEmail()+" Successfully Logged In");
 			return ResponseEntity.ok(e); 
 		}
 		else {
+			Employee e1=new Employee();
+			Logger.warn("Admin Not Found :" +e1.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
@@ -82,6 +88,7 @@ public class EmployeeController {
 	@DeleteMapping("/deleteCustomer/{customerId}")
 	public void deleteCustomer(@PathVariable int customerId) {
 		customerService.deleteCustomer(customerId);
+		Logger.info("Customer Removed  "+customerId); 
 	}
 	
 	//add account
@@ -90,6 +97,7 @@ public class EmployeeController {
 	{
 		
 		savingsAccountService.addAccountDetails(account);
+		Logger.info("New Account Approved for "+account.getAccountId() +" This Account ID");
 		return ResponseEntity.ok("Successfully Added..!");
 	}
 	

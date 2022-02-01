@@ -6,9 +6,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.controller.CustomerController;
 import com.app.dao.CustomerRepository;
 import com.app.dao.SavingsAccountRepository;
 import com.app.dao.SavingsTransactionRepository;
@@ -26,6 +28,7 @@ public class TransactionServiceImpl implements ITransactionService {
 	
 	@Autowired
 	private CustomerRepository customerRepo;
+	 private static final org.jboss.logging.Logger Logger=LoggerFactory.logger(TransactionServiceImpl.class);
 
 	@Override
 	public String betweenAccountsTransfer(int senderAccountNo, int receiverAccountNo, Double amount)
@@ -53,11 +56,13 @@ public class TransactionServiceImpl implements ITransactionService {
 					transaction2=savingsTransactionRepo.save(transaction2);
 					senderAccount.addTransaction(transaction1);
 					receiverAccount.addTransaction(transaction2);
+					Logger.info(" Transaction Sucessfully for "+ senderAccount+" to " +receiverAccount);
 					return "Transaction done Successfully";
 				}
 			}
-			else
-				return "Insufficient Balance ..!! Transaction failed..!!";
+			else {
+				Logger.warn("Insuffisiant Balance for"+senderAccount);
+				return "Insufficient Balance ..!! Transaction failed..!!";}
 			return "";
 		}
 		else 
