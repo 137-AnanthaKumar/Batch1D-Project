@@ -21,6 +21,7 @@ public interface ICustomerService {
 	Customer findById(int id);
 	List<NewApplication> findAll();
 	NewApplication save(NewApplication accountopen);
+	void deleteApplication(Long applicationId);
 
 	
 	

@@ -32,7 +32,8 @@ export const newApplication = (
   email,
   title,
   mobile,
-  aadhar
+  aadhar,
+  pan,
 ) => {
   return (dispatch) => {
     dispatch({
@@ -50,7 +51,8 @@ export const newApplication = (
       email,
       title,
       mobile,
-      aadhar
+      aadhar,
+      pan,
       }
     
     console.log(body);

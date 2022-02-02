@@ -27,7 +27,7 @@ public class SavingsAccountImpl implements ISavingsAccountService {
 	public Boolean addAccountDetails(SavingsAccount account) {
 		account = savingAccountRepo.save(account);
 		Logger.info("New Account Added With THe details"+account.getCustomer().getEmail());
-		System.out.println("account : "+account);
+//		System.out.println("account : "+account);
 		if(account != null)
 		return true;
 		return null;
@@ -43,7 +43,7 @@ public class SavingsAccountImpl implements ISavingsAccountService {
 		String str=null;
 		if(optional.isPresent())
 		{
-			System.out.println("inside optional.ispresent()");
+//			System.out.println("inside optional.ispresent()");
 			SavingsAccount s;
 			s=optional.get();
 			if(s.getIsNetBankingActive()==0)

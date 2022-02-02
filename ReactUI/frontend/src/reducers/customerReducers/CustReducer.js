@@ -54,6 +54,7 @@ export const CustRegisterReducer = (state = {}, action) => {
   }
 };
 
+
 export const CustFundTransReducer = (state = {}, action) => {
   switch (action.type) {
     case CUST_FUND_TRANS_REQUEST:

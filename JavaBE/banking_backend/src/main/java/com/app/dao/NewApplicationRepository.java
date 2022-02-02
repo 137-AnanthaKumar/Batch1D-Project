@@ -10,6 +10,8 @@ public interface NewApplicationRepository extends JpaRepository<NewApplication ,
 
 	NewApplicationRepository save(NewApplicationRepository accountopen);
 
+	
+
 
 
 

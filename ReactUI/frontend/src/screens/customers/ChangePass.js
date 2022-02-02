@@ -24,10 +24,18 @@ const ChangePass = (props) => {
 
   const clearForm = () => {
     setPassword("");
+    
+
   };
   const onChange = (customerId) => {
+
+    if(newpassword==password){
     dispatch(CustChangePass(customerId, password));
-  };
+  }
+  else{
+    alert("NewPassword and ConfirmNew Password Shoulnot Match...")
+  }
+};
 
   useEffect(() => {
     if (response === "successfully updated password!!!") {

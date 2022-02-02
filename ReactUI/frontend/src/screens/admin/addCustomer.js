@@ -9,11 +9,13 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddCustomer = (props) => {
-  const [accountNumber, setAccountNumber] = useState("");
+  const accountnum=Math.floor(Math.random()*34410000) + 54410000;
+  const cifnum=Math.floor(Math.random()*34410000091) + 54410000098;
+  const [accountNumber, setAccountNumber] = useState(accountnum);
   const [accountBalance, setAccountBalance] = useState("");
-  const [cifNo, setCIFNo] = useState("");
-  const [branchName, setBranchName] = useState("");
-  const [ifscCode, setIfscCode] = useState("");
+  const [cifNo, setCIFNo] = useState(cifnum);
+  const [branchName, setBranchName] = useState("TSI");
+  const [ifscCode, setIfscCode] = useState("1234567890");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,7 +41,11 @@ const AddCustomer = (props) => {
  
 
   const onaddCust = () => {
-    
+    // var min = 100000;
+    // var max = 900000;
+    // var password = Math.floor(Math.random() * min)) + max;
+    const password=Math.floor(Math.random()*900001) + 100002;
+
     dispatch(
       addCust(
         accountNumber,
@@ -50,7 +56,8 @@ const AddCustomer = (props) => {
         firstName,
         lastName,
         email,
-        mobileNo
+        mobileNo,
+        password
       )
     );
   };
@@ -93,10 +100,10 @@ const AddCustomer = (props) => {
                 onChange={(e) => {
                   setAccountNumber(e.target.value);
                 }}
-                type="text"
-                maxLength="10"
+               
                 value={accountNumber}
-                placeholder="please enter numbers only"
+                readOnly
+               
                 className="form-control bg-dark text-white"
               />
             </Form.Group>
@@ -151,8 +158,7 @@ const AddCustomer = (props) => {
                 onChange={(e) => {
                   setCIFNo(e.target.value);
                 }}
-                type="text"
-                maxLength="11"
+               
                 value={cifNo}
                 placeholder="please enter 11 digit number"
                 className="form-control bg-dark text-white"
@@ -209,9 +215,10 @@ const AddCustomer = (props) => {
                 onChange={(e) => {
                   setIfscCode(e.target.value);
                 }}
-                type="text"
-                maxLength="11"
+
+                
                 value={ifscCode}
+                readOnly
                 placeholder="please enter 11 character only"
                 className="form-control bg-dark text-white"
                 //className={'bg-dark text-white'}

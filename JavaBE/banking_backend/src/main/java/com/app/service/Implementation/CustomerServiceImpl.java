@@ -72,6 +72,7 @@ public class CustomerServiceImpl implements ICustomerService {
 		customerRepo.deleteById(id);
 	}
 	
+	
 	@Override
 	public Customer findByEmail(String email) {
 		Customer c= customerRepo.findByEmail(email).get();
@@ -164,7 +165,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public List<NewApplication> findAll() {
 		
-		return null;
+		return repo.findAll();
 	}
 
 
@@ -174,6 +175,24 @@ public class CustomerServiceImpl implements ICustomerService {
 	public NewApplication save(NewApplication accountopen) {
 		
 		return repo.save(accountopen) ;
+	}
+
+
+
+
+//	@Override
+//	public void deleteApplication(int applicationId) {
+//		repo.deleteById(int applicationId);
+//		
+//	}
+
+
+
+
+	@Override
+	public void deleteApplication(Long applicationId) {
+		repo.deleteById(applicationId);
+		
 	}
 
 

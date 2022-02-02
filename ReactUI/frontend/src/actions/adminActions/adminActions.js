@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  CUST_APPROVE_SUCCESS,
+  CUST_APPROVE_FAIL,
+  CUST_APPROVE_REQUEST,
   ADMIN_ADD_CUST_FAIL,
   ADMIN_ADD_CUST_REQUEST,
   ADMIN_ADD_CUST_SUCCESS,
@@ -13,6 +16,9 @@ import {
   TRANS_LIST_REQUEST,
   TRANS_LIST_SUCCESS,
   TRANS_LIST_FAIL,
+  CUST_APPLY_SUCCESS,
+  CUST_APPLY_FAIL,
+  CUST_APPLY_REQUEST,
 } from "../../constants/adminConstant/constants";
 
 export const logout = () => {
@@ -57,6 +63,64 @@ export const signin = (email, password) => {
   };
 };
 
+export const custApprove = (
+  password,
+  accountNumber,
+  accountBalance,
+  cifNo,
+  branchName,
+  ifscCode,
+  firstName,
+  email,
+  lastName,
+  mobileNo,
+ 
+) => {
+  return (dispatch) => {
+    dispatch({
+      type: CUST_APPROVE_REQUEST,
+    });
+
+    const header = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = {
+      accountNumber,
+      accountBalance,
+      cifNo,
+      branchName,
+      ifscCode,
+      customer: {
+        
+        firstName,
+        lastName,
+        email,
+        mobileNo,
+        password,
+      },
+    };
+    console.log(body);
+    const url = "http://localhost:8080/ebanking/Employee/addAccount";
+    axios
+      .post(url, body, header)
+      .then((response) => {
+        dispatch({
+          type: CUST_APPROVE_SUCCESS,
+          payload: response.data,
+         });
+      //   window.location.href='/adminhome'
+      })
+      .catch((error) => {
+        dispatch({
+          type: CUST_APPROVE_FAIL,
+          payload: error,
+        });
+      });
+  };
+};
+
 export const addCust = (
   accountNumber,
   accountBalance,
@@ -66,7 +130,9 @@ export const addCust = (
   firstName,
   lastName,
   email,
-  mobileNo
+  mobileNo,
+  password,
+ 
 ) => {
   return (dispatch) => {
     dispatch({
@@ -89,6 +155,7 @@ export const addCust = (
         lastName,
         email,
         mobileNo,
+        password,
       },
     };
     console.log(body);
@@ -110,6 +177,38 @@ export const addCust = (
       });
   };
 };
+export const FetchNewApplyList = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CUST_APPLY_REQUEST,
+    });
+
+    const header = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const url = "http://localhost:8080/ebanking/newapplication/allaccounts";
+    axios
+      .get(url, header)
+      .then((response) => {
+        dispatch({
+          type: CUST_APPLY_SUCCESS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: CUST_APPLY_FAIL,
+          payload: error,
+        });
+      });
+  };
+};
+
+
+
 
 export const FetchCustList = () => {
   return (dispatch) => {

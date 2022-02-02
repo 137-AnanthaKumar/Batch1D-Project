@@ -18,7 +18,7 @@ public class NewApplication {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="application_id")
-	private int applicationId;
+	private Long applicationId;
 	@Column(name="title")
 	private String title;
 	@Column(name="name")
@@ -36,14 +36,32 @@ public class NewApplication {
 	@Column(name="panNo")
 	private String pan;
 	
+	
+	public NewApplication(){
+		
+	}
+	
+	public NewApplication(Long applicationId, String title, String fullname, Date date, String email, String mobile,
+			String pan, String aadhar) {
+		super();
+		this.applicationId = applicationId;
+		this.title = title;
+		this.fullname = fullname;
+		this.date = date;
+		this.email = email;
+		this.mobile = mobile;
+		this.pan = pan;
+		this.aadhar = aadhar;
+	}
+
 	@Column(name="aadharNo")
 	private String aadhar;
 
-	public int getApplicationId() {
+	public Long getApplicationId() {
 		return applicationId;
 	}
 
-	public void setApplicationId(int applicationId) {
+	public void setApplicationId(Long applicationId) {
 		this.applicationId = applicationId;
 	}
 

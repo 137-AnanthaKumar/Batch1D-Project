@@ -1,0 +1,21 @@
+input{
+    width: 120px;
+    height: 25px;
+}
+.buttonbo{
+    width: 80px;
+    color: aliceblue;
+    background-color: blue;
+    padding: 10px;
+    margin: none;
+    height: 20px;
+    border-radius: 10px;
+    font-size: 10px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+.Button{
+    display: flex;
+}

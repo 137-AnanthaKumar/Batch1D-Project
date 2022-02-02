@@ -12,6 +12,10 @@ import {
   TRANS_LIST_REQUEST,
   TRANS_LIST_SUCCESS,
   TRANS_LIST_FAIL,
+  CUST_APPLY_REQUEST,
+  CUST_APPLY_SUCCESS,
+  CUST_APPLY_FAIL,
+
 } from "../../constants/adminConstant/constants";
 
 export const adminSignInReducer = (state = {}, action) => {
@@ -31,6 +35,22 @@ export const adminSignInReducer = (state = {}, action) => {
       return state;
   }
 };
+export const NewListReducer = (state = {}, action) => {
+  switch (action.type) {
+    case  CUST_APPLY_REQUEST:
+      return { loading: true };
+    case CUST_APPLY_SUCCESS:
+      return { loading: false, response: action.payload };
+    case CUST_APPLY_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 
 export const adminAddCustReducer = (state = {}, action) => {
   switch (action.type) {

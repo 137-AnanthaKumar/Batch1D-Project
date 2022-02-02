@@ -6,6 +6,7 @@ import {
   adminAddCustReducer,
   CustomerListReducer,
   TransactionListReducer,
+  NewListReducer,
 } from "./reducers/adminReducers/adminReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import {
@@ -28,6 +29,7 @@ const reducers = combineReducers({
   CustPassChange: CustChangePassReducer,
   CustEmailChange: CustChangeEmailReducer,
   CustList: CustomerListReducer,
+  NewList:  NewListReducer,
   CustRegisterStore: CustRegisterReducer,
   CustTransHistory: TransactionHistoryReducer,
   FundTrans: CustFundTransReducer,

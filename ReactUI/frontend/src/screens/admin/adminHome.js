@@ -173,7 +173,7 @@ export default function PersistentDrawerLeft(props) {
           </ListItem>
           <ListItem button onClick={(e) => setfragment("LIST_NEWAPPLICATION")}>
           <ListItemIcon></ListItemIcon>
-          <ListItemText primary="NEW Application" />
+          <ListItemText primary="New Application" />
         </ListItem>
           <ListItem button onClick={(e) => setfragment("ADD")}>
             <ListItemIcon></ListItemIcon>
