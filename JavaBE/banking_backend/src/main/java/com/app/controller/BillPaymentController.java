@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.TransactionDTO;
 import com.app.entity.BillPayment;
 import com.app.service.Interfaces.BillPaymentService;
+import com.app.service.Interfaces.ITransactionService;
 
 @RestController  
 @RequestMapping("/billpayment")
@@ -20,12 +22,27 @@ public class BillPaymentController {
 	 
 	@Autowired
 	private BillPaymentService billpayservice;
+	
+	@Autowired
+	private ITransactionService transervice;
+
 
 	@PostMapping("/newrequest")
 	public ResponseEntity<?> createAccount(@RequestBody BillPayment billopen) {
+		
 		billpayservice.save(billopen);
+		
+		TransactionDTO senderaccount=new TransactionDTO();
+		senderaccount.setSenderAccountNo(billopen.getSenderAccountNo());
+		senderaccount.setReciverAccountNo(billopen.getReciverAccountNo());
+		senderaccount.setAmount(billopen.getPlan());
+		Double amount=senderaccount.getAmount();
+		int senderaccount1=senderaccount.getSenderAccountNo();
+		int recieveraccount1=senderaccount.getReciverAccountNo();
+		System.out.println(billopen.getSenderAccountNo());
+		transervice.betweenAccountsTransfer(senderaccount1,recieveraccount1 , amount);
 			
-		return ResponseEntity.ok("Recharge Request Added..!");
+		return ResponseEntity.ok("Transaction done Successfully");
 	}
 	
 	

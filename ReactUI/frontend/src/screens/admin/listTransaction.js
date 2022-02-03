@@ -21,11 +21,11 @@ const ListTransaction = (props) => {
 
   const DounloadStatement=()=>{
     
-    var doc=new jsPDF('px','pt','a4');
+    var doc=new jsPDF('px','pt','a3');
    
     
     
-      doc.html(document.querySelector("#pdf"),{
+      doc.html(document.querySelector("#pdfadmin"),{
       callback:function(pdf){
           pdf.save("knststatement.pdf");
   
@@ -33,7 +33,7 @@ const ListTransaction = (props) => {
     }
 
   return (
-    <Card className={"border border-dark bg-white text-dark"}>
+    <Card id="pdfadmin" className={"border border-dark bg-white text-dark"}>
       <Card.Header>List Of All Transaction</Card.Header>
       <Card.Body>
         <div>

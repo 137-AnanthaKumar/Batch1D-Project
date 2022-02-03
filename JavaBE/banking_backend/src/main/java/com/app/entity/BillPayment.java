@@ -1,5 +1,8 @@
 package com.app.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -24,10 +28,10 @@ public class BillPayment {
 	private String operater;
 	
 	@Column(name="plan")
-	private int plan;
+	private Double plan;
 	
 	@Column(name="mobileno")
-	private String mobileno;
+	private String mobileNo;
 	
 	@Column(name="time")
 	private String time;
@@ -40,11 +44,28 @@ public class BillPayment {
 	@Column(name="reciver")
 	private int reciverAccountNo;
 	
-	
-	
 	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="customerId")
-	private Customer customer;
+	@JoinColumn(name="transactionid")
+	private SavingsTransaction transaction;
+	
+	
+	
+//	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//	@JoinColumn(name="id")
+//	private SavingsTransaction transaction;
+
+
+
+
+	public Double getPlan() {
+		return plan;
+	}
+
+
+
+	public void setPlan(Double plan) {
+		this.plan = plan;
+	}
 
 
 
@@ -84,26 +105,22 @@ public class BillPayment {
 
 
 
-	public int getPlan() {
-		return plan;
+
+
+
+
+	
+
+
+
+	public String getMobileNo() {
+		return mobileNo;
 	}
 
 
 
-	public void setPlan(int plan) {
-		this.plan = plan;
-	}
-
-
-
-	public String getMobileno() {
-		return mobileno;
-	}
-
-
-
-	public void setMobileno(String mobileno) {
-		this.mobileno = mobileno;
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 
 
@@ -156,14 +173,13 @@ public class BillPayment {
 
 
 
-	public Customer getCustomer() {
-		return customer;
-	}
+	
 
 
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+	
+
+
+	
 
 }

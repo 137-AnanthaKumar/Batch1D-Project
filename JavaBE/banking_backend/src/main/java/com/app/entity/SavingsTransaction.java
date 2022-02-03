@@ -3,10 +3,14 @@ package com.app.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class SavingsTransaction {
@@ -19,6 +23,20 @@ public class SavingsTransaction {
 	private String type; // credit or debit
 	private Double amount;
 	private Double availableBalance;
+	
+	@OneToOne(mappedBy="transaction",cascade=CascadeType.PERSIST,orphanRemoval = true)
+	private BillPayment billpay;
+	
+
+	
+
+	public BillPayment getBillpay() {
+		return billpay;
+	}
+
+	public void setBillpay(BillPayment billpay) {
+		this.billpay = billpay;
+	}
 
 	public SavingsTransaction() {
 

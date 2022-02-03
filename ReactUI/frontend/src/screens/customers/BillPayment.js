@@ -38,25 +38,27 @@ const toggleTab = (index) => {
    time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
    if(operater==="jio"){
     const reciverAccountNo=62806984;
-    var amount=plan;
+    // var amount=plan;
 
     
-    dispatch(CustRecharge(senderAccountNo, reciverAccountNo, amount,mobileNo,type,date,time));
-       console.log(senderAccountNo);
-       console.log(operater);
-       console.log(amount);
-       console.log("rechgargr");
-       console.log(date);
-       console.log(time);
+    dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
+      //  console.log(senderAccountNo);
+      //  console.log(operater);
+      //  console.log(plan);
+      //  console.log("rechgargr");
+      //  console.log(date);
+      //  console.log(time);
+      
+      
    } 
    else if(operater==="airtel") {
 
     const reciverAccountNo=62806984;
-    var amount=plan;
-    dispatch(CustRecharge(senderAccountNo, reciverAccountNo, amount,mobileNo,type,date,time));
+    // var amount=plan;
+    dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
     console.log(senderAccountNo);
     console.log(operater);
-    console.log(amount);
+    console.log(plan);
     console.log(type);
     console.log(date);
     console.log(time);
@@ -64,22 +66,22 @@ const toggleTab = (index) => {
    
    else if(operater==="bsnl") {
     const reciverAccountNo=62806984;
-    var amount=plan;
-    dispatch(CustRecharge(senderAccountNo, reciverAccountNo, amount,mobileNo,type,date,time));
+    // var amount=plan;
+    dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
     console.log(senderAccountNo);
     console.log(operater);
-    console.log(amount);
+    console.log(plan);
     console.log("rechgargr");
     console.log(date);
     console.log(time);
 }
 else if(operater==="vi") {
   const reciverAccountNo=62806984;
-  var amount=plan;
-  dispatch(CustRecharge(senderAccountNo, reciverAccountNo, amount,mobileNo,type,date,time));
+  // var amount=plan;
+  dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
   console.log(senderAccountNo);
   console.log(operater);
-  console.log(amount);
+  console.log(plan);
   console.log("rechgargr");
   console.log(date);
   console.log(time);

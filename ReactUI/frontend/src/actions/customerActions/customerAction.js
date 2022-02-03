@@ -22,17 +22,20 @@ import {
   CUST_TRANS_LIST_REQUEST,
   CUST_NEW_CUST_REQUEST,
   CUST_NEW_CUST_SUCCESS,
-  CUST_NEW_CUST_FAIL
+  CUST_NEW_CUST_FAIL,
+  CUST_BILL_PAY_REQUEST,
+  CUST_BILL_PAY_SUCESS,
+  CUST_BILL_PAY_FAIL,
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
 
 
 
 
-export const CustRecharge = (senderAccountNo, reciverAccountNo, amount ,mobileNo,type,date,time) => {
+export const CustRecharge = (senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time) => {
   return (dispatch) => {
     dispatch({
-      type: CUST_FUND_TRANS_REQUEST,
+      type: CUST_BILL_PAY_REQUEST,
     });
 
     const header = {
@@ -43,29 +46,30 @@ export const CustRecharge = (senderAccountNo, reciverAccountNo, amount ,mobileNo
     const body = {
       senderAccountNo,
       reciverAccountNo,
-      amount,
+      plan,
       time,
       date,
       type,
       mobileNo,
+      operater,
      
     };
     console.log(body);
-    // const url = "http://localhost:8080/ebanking/transaction";
-    // axios
-    //   .post(url, body, header)
-    //   .then((response) => {
-    //     dispatch({
-    //       type: CUST_FUND_TRANS_SUCCESS,
-    //       payload: response.data,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     dispatch({
-    //       type: CUST_FUND_TRANS_FAIL,
-    //       payload: error,
-    //     });
-    //   });
+    const url = "http://localhost:8080/ebanking/billpayment/newrequest";
+    axios
+      .post(url, body, header)
+      .then((response) => {
+        dispatch({
+          type: CUST_BILL_PAY_SUCESS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: CUST_BILL_PAY_FAIL,
+          payload: error,
+        });
+      });
   };
 };
 export const newApplication = (
