@@ -20,7 +20,28 @@ import {
   CUST_TRANS_LIST_FAIL,
   CUST_TRANS_LIST_SUCCESS,
   CUST_TRANS_LIST_REQUEST,
+  CUST_BILL_PAY_REQUEST,
+  CUST_BILL_PAY_SUCESS,
+  CUST_BILL_PAY_FAIL,
 } from "../../constants/customerConstant/CustConst";
+
+
+export const CustBillPayReducer = (state = {}, action) => {
+  switch (action.type) {
+    case CUST_BILL_PAY_REQUEST:
+      return { loading: true };
+    case CUST_BILL_PAY_SUCESS:
+      return { loading: false, response: action.payload };
+    case CUST_BILL_PAY_FAIL:
+      return {
+        loading: false, 
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 
 export const CustSignInReducer = (state = {}, action) => {
   switch (action.type) {

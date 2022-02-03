@@ -24,6 +24,7 @@ import Approve from "./Approve";
 import { logout } from "../../actions/adminActions/adminActions";
 import { useDispatch, useSelector } from "react-redux";
 import { history } from "react-router-dom";
+// import BillPayment from "../customers/BillPayment";
 
 const drawerWidth = 280;
 
@@ -111,6 +112,8 @@ export default function PersistentDrawerLeft(props) {
         return <ListTransaction />;
       case "LIST_NEWAPPLICATION":
           return <Approve />;
+        // case "BILL_PAY":
+        //     return <BillPayment />;
       default:
         break;
     }
@@ -187,6 +190,7 @@ export default function PersistentDrawerLeft(props) {
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="List All Transactions" />
           </ListItem>
+      
           <ListItem button onClick={onLogout}>
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Logout" />

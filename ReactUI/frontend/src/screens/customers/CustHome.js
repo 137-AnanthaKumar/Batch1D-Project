@@ -19,9 +19,10 @@ import CustProfile from "./CustProfile";
 import MakeTransaction from "./MakeTrans";
 import TransactionHistory from "./TranscHistory";
 
-
+import PayeeRegister  from "./PayeeRegister";
 import ChangePass from "./ChangePass";
 import { history } from "react-router-dom";
+import BillPayment from "../customers/BillPayment";
 
 const drawerWidth = 280;
 
@@ -107,8 +108,10 @@ export default function PersistentDrawerLeft(props) {
 
       // case "CHANGEMOB":
       //   return <ChangeMobNo />;
-      // case "CHANGEEMAIL":
-      //   return <ChangeEmail />;
+      case "BILL_PAY":
+            return <BillPayment />;
+      case "PAYEE":
+        return <PayeeRegister />;
       case "CHANGEPASS":
         return <ChangePass />;
       default:
@@ -184,7 +187,14 @@ export default function PersistentDrawerLeft(props) {
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Change Password" />
           </ListItem>
-        
+          <ListItem button onClick={(e) => setfragment("PAYEE")}>
+            <ListItemIcon></ListItemIcon>
+            <ListItemText primary="Payee" />
+          </ListItem>
+          <ListItem button onClick={(e) => setfragment("BILL_PAY")}>
+          <ListItemIcon></ListItemIcon>
+          <ListItemText primary="Bill Payment" />
+          </ListItem>
           <ListItem button onClick={onLogout}>
             <ListItemIcon></ListItemIcon>
             <ListItemText primary="Logout" />

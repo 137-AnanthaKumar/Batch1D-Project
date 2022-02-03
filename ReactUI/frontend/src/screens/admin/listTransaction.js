@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import jsPDF from 'jspdf';
 import { Card, Table } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,19 @@ const ListTransaction = (props) => {
   }, []);
 
   useEffect(() => {}, [error, response, loading]);
+
+  const DounloadStatement=()=>{
+    
+    var doc=new jsPDF('px','pt','a4');
+   
+    
+    
+      doc.html(document.querySelector("#pdf"),{
+      callback:function(pdf){
+          pdf.save("knststatement.pdf");
+  
+      }});
+    }
 
   return (
     <Card className={"border border-dark bg-white text-dark"}>
@@ -56,6 +69,8 @@ const ListTransaction = (props) => {
           </Table>
         </div>
       </Card.Body>
+      <Card.Footer> <center> <button onClick={DounloadStatement} type="primary">Dounload Statement</button></center></Card.Footer>
+    
     </Card>
   );
 };

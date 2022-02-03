@@ -1,4 +1,6 @@
+import jsPDF from "jspdf";
 import React, { useState, useEffect } from "react";
+// import bag from '../src/image/bag.png';
 
 import { Card, Table } from "react-bootstrap";
 
@@ -20,8 +22,24 @@ const TransactionHistory = (props) => {
 
   useEffect(() => {}, [error, response, loading]);
 
+  const DounloadStatement=()=>{
+    
+  var doc=new jsPDF('px','pt','a4');
+ 
+  
+  
+    doc.html(document.querySelector("#pdf"),{
+    callback:function(pdf){
+        pdf.save("knststatement.pdf");
+
+    }});
+    
+    
+    
+  }
+  
   return (
-    <Card className={"border border-white bg-white text-dark"}>
+    <Card id="pdf" className={"border border-white bg-white text-dark"}>
       <Card.Header>Transaction History</Card.Header>
       <Card.Body>
         <div>
@@ -55,6 +73,7 @@ const TransactionHistory = (props) => {
           </Table>
         </div>
       </Card.Body>
+      <Card.Footer> <center> <button onClick={DounloadStatement} type="primary">Dounload Statement</button></center></Card.Footer>
     </Card>
   );
 };

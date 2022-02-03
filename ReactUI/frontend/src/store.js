@@ -17,6 +17,8 @@ import {
   CustChangeMobReducer,
   TransactionHistoryReducer,
   CustFundTransReducer,
+  CustBillPayReducer,
+
 } from "./reducers/customerReducers/CustReducer";
 
 // combined reducers
@@ -33,6 +35,7 @@ const reducers = combineReducers({
   CustRegisterStore: CustRegisterReducer,
   CustTransHistory: TransactionHistoryReducer,
   FundTrans: CustFundTransReducer,
+  BillPay:CustBillPayReducer,
 });
 
 const store = createStore(

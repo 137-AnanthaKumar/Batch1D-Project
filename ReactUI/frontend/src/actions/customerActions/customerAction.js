@@ -26,6 +26,48 @@ import {
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
 
+
+
+
+export const CustRecharge = (senderAccountNo, reciverAccountNo, amount ,mobileNo,type,date,time) => {
+  return (dispatch) => {
+    dispatch({
+      type: CUST_FUND_TRANS_REQUEST,
+    });
+
+    const header = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = {
+      senderAccountNo,
+      reciverAccountNo,
+      amount,
+      time,
+      date,
+      type,
+      mobileNo,
+     
+    };
+    console.log(body);
+    // const url = "http://localhost:8080/ebanking/transaction";
+    // axios
+    //   .post(url, body, header)
+    //   .then((response) => {
+    //     dispatch({
+    //       type: CUST_FUND_TRANS_SUCCESS,
+    //       payload: response.data,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     dispatch({
+    //       type: CUST_FUND_TRANS_FAIL,
+    //       payload: error,
+    //     });
+    //   });
+  };
+};
 export const newApplication = (
   fullname,
   date,
