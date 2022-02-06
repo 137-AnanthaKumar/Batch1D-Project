@@ -26,6 +26,9 @@ import {
   CUST_BILL_PAY_REQUEST,
   CUST_BILL_PAY_SUCESS,
   CUST_BILL_PAY_FAIL,
+  CUST_PROFILE_REQUEST,
+  CUST_PROFILE_SUCCESS,
+  CUST_PROFILE_FAIL,
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
 
@@ -362,6 +365,37 @@ export const FetchTransHistory = (customerId) => {
       .catch((error) => {
         dispatch({
           type: CUST_TRANS_LIST_FAIL,
+          payload: error,
+        });
+      });
+  };
+};
+
+
+export const FetchCustProfile = (customerId) => {
+  return (dispatch) => {
+    dispatch({
+      type: CUST_PROFILE_REQUEST,
+    });
+
+    const header = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const url = "http://localhost:8080/ebanking/customer/getProfile";
+    axios
+      .get(url + "/" + customerId, header)
+      .then((response) => {
+        dispatch({
+          type: CUST_PROFILE_SUCCESS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: CUST_PROFILE_FAIL,
           payload: error,
         });
       });

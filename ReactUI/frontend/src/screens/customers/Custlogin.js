@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { CustSignin } from "../../actions/customerActions/customerAction.js";
 import { Card } from "react-bootstrap";
 import './Customer.css';
-// import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 
 const CustLogin = (props) => {

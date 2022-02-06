@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
+import validator from 'validator';
 
 import { CustChangePass } from "../../actions/customerActions/customerAction.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +23,22 @@ const ChangePass = (props) => {
   const cust = sessionStorage.getItem("customer");
   const customerId = JSON.parse(cust).customerId;
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessagee, setErrorMessagee] = useState('');
+  
+  const validate = (value) => {
+    setNewPassword(value);
+    if (validator.isStrongPassword(value, {
+      minLength: 8, minLowercase: 1,
+      minUppercase: 1, minNumbers: 1, minSymbols: 1
+    })) {
+      setErrorMessage('Is Strong Password')
+    } else {
+      setErrorMessage('Is Not Strong Password')
+    }
+  }
+  
+
   const clearForm = () => {
     setPassword("");
     
@@ -33,6 +50,7 @@ const ChangePass = (props) => {
     dispatch(CustChangePass(customerId, password));
   }
   else{
+    setErrorMessagee(' Should Not Match Password')
     alert("NewPassword and ConfirmNew Password Shoulnot Match...")
   }
 };
@@ -71,23 +89,30 @@ const ChangePass = (props) => {
                 className="form-control"
                 type="password"
                 placeholder="********"
-                maxLength="8"
+               
                 value={oldpassword}
               />
+              
             </div>
             <div className="mb-3">
               <label className="form-label"> New Password</label>
               <input
-              onChange={(e) => {
-                setNewPassword(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   setNewPassword(e.target.value);
+              // }}
+               onChange={(e) => validate(e.target.value)}
+
                 
                 className="form-control"
                 type="password"
                 placeholder="********"
-                maxLength="8"
-                value={newpassword}
+                // maxLength="8"
+                // value={newpassword}
               />
+              <span style={{
+                fontWeight: 'bold',
+                color: 'red',
+              }}>{errorMessage}</span>
             </div>
             <div className="mb-3">
               <label className="form-label"> Confirm New Password</label>
@@ -99,9 +124,13 @@ const ChangePass = (props) => {
                 className="form-control"
                 type="password"
                 placeholder="********"
-                maxLength="8"
+                
                 value={password}
               />
+              <span style={{
+                fontWeight: 'bold',
+                color: 'red',
+              }}>{errorMessagee}</span>
             </div>
             <div className="mb-3">
               <button

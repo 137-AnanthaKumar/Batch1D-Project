@@ -64,17 +64,18 @@ export const signin = (email, password) => {
 };
 
 export const custApprove = (
-  password,
-  accountNumber,
-  accountBalance,
-  cifNo,
-  branchName,
-  ifscCode,
-  firstName,
-  email,
-  lastName,
-  mobileNo,
+       password,
+        accountNumber,
+        cifNo,
+        accountBalance,
+        branchName,
+        ifscCode,
+        firstName,
+        email,
+        mobileNo,
+        lastName,
  
+  
 ) => {
   return (dispatch) => {
     dispatch({

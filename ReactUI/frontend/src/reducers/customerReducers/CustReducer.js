@@ -23,10 +23,29 @@ import {
   CUST_BILL_PAY_REQUEST,
   CUST_BILL_PAY_SUCESS,
   CUST_BILL_PAY_FAIL,
+  CUST_PROFILE_FAIL,
+  CUST_PROFILE_SUCCESS,
+  CUST_PROFILE_REQUEST,
 } from "../../constants/customerConstant/CustConst";
 
-
 export const CustBillPayReducer = (state = {}, action) => {
+  switch (action.type) {
+    case CUST_PROFILE_REQUEST:
+      return { loading: true };
+    case CUST_PROFILE_SUCCESS:
+      return { loading: false, response: action.payload };
+    case CUST_PROFILE_FAIL:
+      return {
+        loading: false, 
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+
+export const CustProfileReducer = (state = {}, action) => {
   switch (action.type) {
     case CUST_BILL_PAY_REQUEST:
       return { loading: true };

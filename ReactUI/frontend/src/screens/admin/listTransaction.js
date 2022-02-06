@@ -19,7 +19,7 @@ const ListTransaction = (props) => {
 
   useEffect(() => {}, [error, response, loading]);
 
-  const DounloadStatement=()=>{
+  const DounloadStatementa=()=>{
     
     var doc=new jsPDF('px','pt','a3');
    
@@ -69,7 +69,7 @@ const ListTransaction = (props) => {
           </Table>
         </div>
       </Card.Body>
-      <Card.Footer> <center> <button onClick={DounloadStatement} type="primary">Dounload Statement</button></center></Card.Footer>
+      <Card.Footer> <center> <button onClick={DounloadStatementa} type="primary">Dounload Statement</button></center></Card.Footer>
     
     </Card>
   );

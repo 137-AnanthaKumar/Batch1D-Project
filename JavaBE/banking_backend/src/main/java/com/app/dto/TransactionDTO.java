@@ -4,6 +4,7 @@ public class TransactionDTO {
 	private int senderAccountNo;
 	private int reciverAccountNo;
 	private double amount;
+	
 	public TransactionDTO() {
 		
 	}

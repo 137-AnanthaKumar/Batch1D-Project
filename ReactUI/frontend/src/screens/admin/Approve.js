@@ -10,7 +10,7 @@ import './Approve.css';
 function Approve(props) {
   
  
-    const[accountBalance, setAccountBalance]=useState(0);
+    // const[accountBalance, setAccountBalance]=useState(0);
     const[firstName,setfirstName]=useState("");
     const[lastName,setlastName]=useState(null);
     const [email, setEmail] = useState("");
@@ -36,7 +36,7 @@ function Approve(props) {
     const cifNo=Math.floor(Math.random()*34410000091) + 54410000098;
     const branchName="TSI";
     const ifscCode="12345678909";
-   
+    const accountBalance=0;
     
     dispatch(
       custApprove(
@@ -52,9 +52,11 @@ function Approve(props) {
         lastName,
         
       )
+      
      
     );
-    setAccountBalance(null);
+    console.log("bal from approve"+accountBalance);
+   
     
     // axios
     // .delete(
@@ -133,7 +135,7 @@ function Approve(props) {
               <th>Aadhar Number</th>
              
               <th>Application Id</th>
-              <th>Balance</th>
+           
               <th>Action</th>
             
             </tr>
@@ -148,7 +150,7 @@ function Approve(props) {
               
                 className="formcontrol"
                 value={list.title}
-                readOnly
+               
               /></td>
                     <td > <input
                      value={list.fullname}
@@ -214,9 +216,7 @@ function Approve(props) {
                 value={list.applicationId}
                 readOnly
               /></td>
-                    <td><input type="number" placeholder='SetBalance' onChange={(e) => {
-                  setAccountBalance(e.target.value);
-                }}/></td>
+               
                     <td><div className='Button'>
                       <button
                         size="md"

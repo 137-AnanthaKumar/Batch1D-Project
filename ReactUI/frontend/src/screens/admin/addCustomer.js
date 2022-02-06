@@ -45,7 +45,7 @@ const AddCustomer = (props) => {
     // var max = 900000;
     // var password = Math.floor(Math.random() * min)) + max;
     const password=Math.floor(Math.random()*900001) + 100002;
-
+    
     dispatch(
       addCust(
         accountNumber,

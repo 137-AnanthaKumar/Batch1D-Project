@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import ch.qos.logback.classic.Logger;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -58,15 +58,16 @@ public class CustomerController {
 	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> fetchDetails(@RequestBody Customer c) {
 //		Customer cust = new Customer();
-		System.out.println("in fetch customer email : " + c.getEmail() + "	password : " + c.getPassword());
+//		System.out.println("in fetch customer email : " + c.getEmail() + "	password : " + c.getPassword());
 		if ((c = customerService.getCustomerDetails(c.getEmail(), c.getPassword())) != null) {
 			Logger.info("User Logged IN "+c.getEmail());
 			return ResponseEntity.ok(c);
 			
 		} else {
 			Customer cust = new Customer();
-			Logger.warn("User Not Found " +cust.getEmail());
+			Logger.warn("User Not Found " +c.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
 			
 		}
 
@@ -121,8 +122,8 @@ public class CustomerController {
 	}
 		
 	
-	@GetMapping("/getProfile")
-	public SavingsAccount getCustomerProfile(@RequestParam int id)
+	@GetMapping("/getProfile/{customerId}")
+	public SavingsAccount getCustomerProfile(@PathVariable int id)
 	{
 		SavingsAccount s1=customerService.getCustomer(id).getSavingsAccount();
 		Logger.info(" Got A User Profile "+s1.getAccountId() +s1.getAccountNumber()+  s1.getAccountBalance());

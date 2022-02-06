@@ -1,10 +1,37 @@
-import React, { Component } from "react";
+import React, { Component,useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import './CustProfile.css';
+import { FetchCustProfile } from "../../actions/customerActions/customerAction.js";
+
 
 const CustProfile = (props) => {
-  const customer = JSON.parse(sessionStorage.getItem("customer"));
+  // const customer = JSON.parse(sessionStorage.getItem("customer"));
+  const dispatch = useDispatch();
+
+  const CustProfile = useSelector((store) => store.CustProfile);
+  const { error, response, loading } = CustProfile;
+
+  const cust = JSON.parse(sessionStorage.getItem("customer"));
+  const customerId = cust.customerId;
+
+  // useEffect(() => {
+  //   dispatch(FetchCustProfile(customerId));
+  // }, []);
+
+  useEffect(() => {}, [error, response, loading]);
+
+
+
+
+
+  // const CustProfile = useSelector((store) => store.CustProfile);
+  // const { error, response, loading } = CustProfile;
+  // toast.configure();
+  // useEffect(() => {
+  //   dispatch(FetchNewApplyList());
+  // }, []);
   //console.log(customer)
   return (
     <div className="mainprofile">
@@ -15,20 +42,20 @@ const CustProfile = (props) => {
           <Card.Header>Profile</Card.Header>
           <Card.Body>
             <h4>Personal Information</h4>
-            <div>First Name : {customer.firstName}</div>
-            <div>Last Name : {customer.lastName}</div>
-            <div>Email : {customer.email}</div>
-            <div>Mobile Number : {customer.mobileNo}</div>
+            <div>First Name : {cust.firstName}</div>
+            <div>Last Name : {cust.lastName}</div>
+            <div>Email : {cust.email}</div>
+            <div>Mobile Number : {cust.mobileNo}</div>
             <br />
 
             <h4>Account Details</h4>
-            <div>Account Number : {customer.savingsAccount.accountNumber}</div>
+            <div>Account Number : {cust.savingsAccount.accountNumber}</div>
             <div>
-              Account Balance : {customer.savingsAccount.accountBalance}
+              Account Balance : {cust.savingsAccount.accountBalance}
             </div>
-            <div>CIF Number : {customer.savingsAccount.cifNo}</div>
-            <div>Branch Name : {customer.savingsAccount.branchName}</div>
-            <div>IFSC Code : {customer.savingsAccount.ifscCode}</div>
+            <div>CIF Number : {cust.savingsAccount.cifNo}</div>
+            <div>Branch Name : {cust.savingsAccount.branchName}</div>
+            <div>IFSC Code : {cust.savingsAccount.ifscCode}</div>
           </Card.Body>
         </Card>
       </Container>

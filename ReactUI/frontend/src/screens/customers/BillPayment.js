@@ -28,6 +28,7 @@ const toggleTab = (index) => {
   const dispatch = useDispatch();
 
  const MakeReCharge=()=>{
+   
   alert("Do You wanna recharge for "+mobileNo+" With "+plan+" for "+operater);
    const type="recharge";
    var today = new Date(),
@@ -135,9 +136,14 @@ else if(operater==="vi") {
           <hr />
           <div class="form-group">
           <label>Enter Mobile</label>
-          <input type="text" class="form-control"  
+          <input type="text" class="form-control" 
+          
+          pattern="[0-9]{10}" required
           onChange={(e) => {setMobileNo(e.target.value); }}
-          aria-describedby="emailHelp" placeholder="Enter Phone"/>
+          aria-describedby="emailHelp" 
+                    
+          
+          placeholder="Enter Phone"/>
           </div>
          <div  class="form-group">
          <label>Select Opetater</label>

@@ -132,17 +132,18 @@ const Applynew =(props)=> {
   
 </div>
 <div className="form-group">
-<Form.Group controlId="dob">
-    <Form.Label>Select Date</Form.Label>
-    <Form.Control
-     onChange={(e) => {
-      setdate(e.target.value);
-    }}
-    type="date" name="dob" value={date} placeholder="Date of Birth"
-    required />
-</Form.Group>
-</div>
-
+      <Form.Group controlId="dob">
+        <Form.Label>Select Date of Birth</Form.Label>
+        <Form.Control
+          onChange={(e) => {
+            setdate(e.target.value);
+          }}
+          type="date" name="dob" value={date} placeholder="Date of Birth" min="1920-01-01"
+    max="2003-12-31"
+          required />
+          <p>Only customer above 18 years are eligible to apply for an account</p>
+      </Form.Group>
+    </div>
 
 
   <div class="form-group">

@@ -24,7 +24,7 @@ const TransactionHistory = (props) => {
 
   const DounloadStatement=()=>{
     
-  var doc=new jsPDF('px','pt','a4');
+  var doc=new jsPDF('px','pt','a3');
  
   
   
