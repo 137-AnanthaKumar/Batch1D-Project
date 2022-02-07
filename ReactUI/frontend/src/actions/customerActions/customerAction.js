@@ -31,6 +31,7 @@ import {
   CUST_PROFILE_FAIL,
 } from "../../constants/customerConstant/CustConst";
 import axios from "axios";
+import bcrypt from 'bcryptjs';
 
 
 
@@ -127,7 +128,9 @@ export const newApplication = (
 
 
 
-export const CustSignin = (email, password) => {
+export const CustSignin = (email, pass) => {
+
+  const password = bcrypt.hashSync(pass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
   return (dispatch) => {
     dispatch({
       type: CUST_SIGNIN_REQUEST,
@@ -275,7 +278,9 @@ export const CustChangeMob = (customerId, mobileNo) => {
   };
 };
 
-export const CustChangePass = (customerId, password) => {
+export const CustChangePass = (customerId, pass) => {
+
+  const password = bcrypt.hashSync(pass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
   return (dispatch) => {
     dispatch({
       type: CUST_CHANGE_PASS_REQUEST,

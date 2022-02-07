@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const CustLogin = (props) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [pass, setPass] = useState("");
   // const[data,setData]=("");
 
   const CustSignIn = useSelector((store) => store.CustSignIn);
@@ -15,7 +15,7 @@ const CustLogin = (props) => {
   const dispatch = useDispatch();
 
   const onSignin = () => {
-    dispatch(CustSignin(email, password));
+    dispatch(CustSignin(email, pass));
   };
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const CustLogin = (props) => {
               <label className="form-label">Password</label>
               <input
                 onChange={(e) => {
-                  setPassword(e.target.value);
+                  setPass(e.target.value);
                 }}
                 className="form-control"
                 maxLength="8"

@@ -2,6 +2,8 @@ import { Container } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import validator from 'validator';
+import bcrypt from 'bcryptjs';
+
 
 import { CustChangePass } from "../../actions/customerActions/customerAction.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,8 +13,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ChangePass = (props) => {
-  const [password, setPassword] = useState("");
-  const[oldpassword, setOldPassword]=useState("");
+  const [pass, setPass] = useState("");
+  const[oldpass, setOldPassword]=useState("");
   const[newpassword, setNewPassword]=useState("");
 
   const CustPassChange = useSelector((store) => store.CustPassChange);
@@ -29,7 +31,7 @@ const ChangePass = (props) => {
   const validate = (value) => {
     setNewPassword(value);
     if (validator.isStrongPassword(value, {
-      minLength: 8, minLowercase: 1,
+      maxLength: 8, minLowercase: 1,
       minUppercase: 1, minNumbers: 1, minSymbols: 1
     })) {
       setErrorMessage('Is Strong Password')
@@ -40,14 +42,20 @@ const ChangePass = (props) => {
   
 
   const clearForm = () => {
-    setPassword("");
+    setPass("");
     
 
   };
   const onChange = (customerId) => {
 
-    if(newpassword==password){
-    dispatch(CustChangePass(customerId, password));
+     
+    if(newpassword==pass){
+      
+      const intpass=oldpass.toString();
+     
+      const oldpassword = bcrypt.hashSync(intpass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
+  
+    dispatch(CustChangePass(customerId, pass));
   }
   else{
     setErrorMessagee(' Should Not Match Password')
@@ -90,7 +98,7 @@ const ChangePass = (props) => {
                 type="password"
                 placeholder="********"
                
-                value={oldpassword}
+                value={oldpass}
               />
               
             </div>
@@ -118,14 +126,14 @@ const ChangePass = (props) => {
               <label className="form-label"> Confirm New Password</label>
               <input
               onChange={(e) => {
-                setPassword(e.target.value);
+                setPass(e.target.value);
               }}
                 
                 className="form-control"
                 type="password"
                 placeholder="********"
                 
-                value={password}
+                value={pass}
               />
               <span style={{
                 fontWeight: 'bold',

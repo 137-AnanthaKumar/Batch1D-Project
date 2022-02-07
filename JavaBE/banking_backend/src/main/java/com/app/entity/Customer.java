@@ -20,6 +20,8 @@ public class Customer {
 	private String lastName;
 	@Column(length=100)
 	private String password;
+	@Column(name="intpass")
+	private String intpass;
 	@Column(name="email",unique = true)
 	private String email;
 	private String mobileNo;
@@ -35,6 +37,12 @@ public class Customer {
 		this.mobileNo = mobileNo;
 	}
 	
+	public String getIntpass() {
+		return intpass;
+	}
+	public void setIntpass(String intpass) {
+		this.intpass = intpass;
+	}
 	public Customer(String firstName, String lastName, String password, String email) {
 			super();
 			this.firstName = firstName;
@@ -43,16 +51,17 @@ public class Customer {
 			this.email = email;
 		
 	}
-	public Customer(String firstName, String lastName, String password, String email, String mobileNo) {
+	public Customer(String firstName, String lastName, String password,String intpass, String email, String mobileNo) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.intpass=intpass;
 		this.email = email;
 		this.mobileNo = mobileNo;
 		
 	}
 		
-		public Customer(String firstName, String lastName, String password, String email, String mobileNo,
+		public Customer(String firstName, String lastName, String password, String email, String mobileNo,String intpass,
 				SavingsAccount savingsAccount) {
 			
 			this.firstName = firstName;
@@ -60,6 +69,7 @@ public class Customer {
 			this.password = password;
 			this.email = email;
 			this.mobileNo = mobileNo;
+			this.intpass=intpass;
 			this.savingsAccount.setAccountBalance(savingsAccount.getAccountBalance());
 			this.savingsAccount.setAccountNumber(savingsAccount.getAccountNumber());
 			this.savingsAccount.setBranchName(savingsAccount.getBranchName());

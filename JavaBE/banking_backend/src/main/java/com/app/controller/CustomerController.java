@@ -57,6 +57,7 @@ public class CustomerController {
 	
 	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> fetchDetails(@RequestBody Customer c) {
+	  System.out.println("pass"+c.getPassword());
 //		Customer cust = new Customer();
 //		System.out.println("in fetch customer email : " + c.getEmail() + "	password : " + c.getPassword());
 		if ((c = customerService.getCustomerDetails(c.getEmail(), c.getPassword())) != null) {
@@ -105,18 +106,18 @@ public class CustomerController {
 			savingsAccountService.addSA(sa);
 			Logger.info("NetBanking Activation Completed for "+customer.getEmail());
 			
-			
+			return ResponseEntity.ok("Registered Succesfully..!!");
 			
 			
 
 //			if (customerService.addCustomer(customer)) {
-//				// if(str=="Already registered")
-//				// return new ResponseEntity<>(HttpStatus.FOUND); // status: 302
-//				// else if(str=="Registered")
-//				return ResponseEntity.ok("Registered Succesfully..!!");
+//				 if(str=="Already registered")
+//				 return new ResponseEntity<>(HttpStatus.FOUND); // status: 302
+//				 else if(str=="Registered")
+//				
 //				// return ResponseEntity.ok(c); // successfully registered // status: 200
 //			}
-		}
+	}
 		// }
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}

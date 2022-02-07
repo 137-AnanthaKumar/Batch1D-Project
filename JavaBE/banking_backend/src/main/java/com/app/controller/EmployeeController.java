@@ -97,6 +97,7 @@ public class EmployeeController {
 	{
 		
 		savingsAccountService.addAccountDetails(account);
+      System.out.println("new"+account.getCustomer().getIntpass());
 		Logger.info("New Account Approved for "+account.getAccountId() +" This Account ID");
 		return ResponseEntity.ok("Successfully Added..!");
 	}

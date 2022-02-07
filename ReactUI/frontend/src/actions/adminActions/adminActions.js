@@ -65,6 +65,7 @@ export const signin = (email, password) => {
 
 export const custApprove = (
        password,
+       intpass,
         accountNumber,
         cifNo,
         accountBalance,
@@ -77,6 +78,8 @@ export const custApprove = (
  
   
 ) => {
+  console.log(intpass);
+  console.log(password);
   return (dispatch) => {
     dispatch({
       type: CUST_APPROVE_REQUEST,
@@ -100,6 +103,7 @@ export const custApprove = (
         email,
         mobileNo,
         password,
+        intpass,
       },
     };
     console.log(body);
@@ -133,8 +137,10 @@ export const addCust = (
   email,
   mobileNo,
   password,
+  intpass,
  
 ) => {
+  console.log("from adminaction"+intpass);
   return (dispatch) => {
     dispatch({
       type: ADMIN_ADD_CUST_REQUEST,
@@ -157,6 +163,7 @@ export const addCust = (
         email,
         mobileNo,
         password,
+        intpass,
       },
     };
     console.log(body);

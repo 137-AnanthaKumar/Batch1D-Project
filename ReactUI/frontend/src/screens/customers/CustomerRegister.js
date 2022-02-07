@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import bcrypt from 'bcryptjs';
+
 
 const CustRegs = (props) => {
-  const [password, setPassword] = useState("");
+  const [pass, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [mobileNo, setMobileNo] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
@@ -30,6 +32,8 @@ const CustRegs = (props) => {
   };
 
   const onRegister = () => {
+   
+    const password = bcrypt.hashSync(pass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
     dispatch(
       CustRegister(
         password,
@@ -40,11 +44,12 @@ const CustRegs = (props) => {
         ifscCode
       )
     );
+    alert("NetBanking Activation Susscessfull..")
   };
 
   useEffect(() => {
     if (response && response === "Registered Succesfully..!!") {
-      sessionStorage.setItem('token', response.data.token)
+    
       alert(
         "Your Registration is successfully completed !! Please activate your account through your registered Email"
       );
@@ -53,7 +58,7 @@ const CustRegs = (props) => {
         "Your Registration is Successfully Completed ..!! Please Activate your Account through your Registered Email",
         { autoClose: 10000 }
       );
-      //<Redirect to="/custlogin" />;
+      <Redirect to="/custlogin" />;
       props.history.push("/custlogin");
     } else if (response && response.status === "error") {
       alert(response.error);
@@ -80,7 +85,7 @@ const CustRegs = (props) => {
                 type="password"
                 maxLength="8"
                 placeholder="******"
-                value={password}
+                value={pass}
                 className="form-control text-dark"
               />
             </Form.Group>

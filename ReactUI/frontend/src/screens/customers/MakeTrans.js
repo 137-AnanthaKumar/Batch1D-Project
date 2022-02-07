@@ -28,8 +28,19 @@ const CustomerFundTransfer = (props) => {
     setAmount("");
   };
   
+
+  
    const onTransfer = () => {
+
+    if(amount>0){
     dispatch(CustFundTransfer(senderAccountNo, reciverAccountNo, amount));
+
+
+  }
+  else{
+    toast.error("Enter Proper Amount To WithDraw", { autoClose: 1000 });
+    clearForm();
+  }
   };
 
   useEffect(() => {
@@ -45,6 +56,7 @@ const CustomerFundTransfer = (props) => {
       });
     }
   }, [loading, error, response]);
+  useEffect(() => {});
 
   return (
     <div>

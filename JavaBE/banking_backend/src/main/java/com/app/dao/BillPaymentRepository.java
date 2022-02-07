@@ -13,6 +13,8 @@ import com.app.entity.BillPayment;
 @Repository
 public interface BillPaymentRepository extends JpaRepository<BillPayment, Integer> {
 
+	
+
 }
 
 

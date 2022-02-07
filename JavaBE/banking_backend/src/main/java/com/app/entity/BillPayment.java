@@ -30,6 +30,25 @@ public class BillPayment {
 	@Column(name="plan")
 	private Double plan;
 	
+	public BillPayment() {
+		
+	}
+	
+	public BillPayment(String type, String operater, Double plan, String mobileNo, String time, String date,
+			int senderAccountNo, int reciverAccountNo) {
+		super();
+		this.type = type;
+		this.operater = operater;
+		this.plan = plan;
+		this.mobileNo = mobileNo;
+		this.time = time;
+		this.date = date;
+		this.senderAccountNo = senderAccountNo;
+		this.reciverAccountNo = reciverAccountNo;
+	}
+
+
+
 	@Column(name="mobileno")
 	private String mobileNo;
 	

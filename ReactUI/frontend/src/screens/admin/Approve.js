@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import { FetchNewApplyList } from "../../actions/adminActions/adminActions";
 import { custApprove } from "../../actions/adminActions/adminActions.js";
 import './Approve.css';
+import bcrypt from 'bcryptjs';
+
 
 function Approve(props) {
   
@@ -30,17 +32,23 @@ function Approve(props) {
   useEffect(() => {}, [error, response, loading]);
 
   const onApprove=()=>{
+    let intpas=Math.floor(Math.random()*900001) + 100002;
+    const intpass=intpas.toString();
+   
+    const password = bcrypt.hashSync(intpass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
+
     
-    const password=Math.floor(Math.random()*900001) + 100002;
+   
     const accountNumber=Math.floor(Math.random()*34410000) + 54410000;
     const cifNo=Math.floor(Math.random()*34410000091) + 54410000098;
     const branchName="TSI";
     const ifscCode="12345678909";
-    const accountBalance=0;
+    const accountBalance=600;
     
     dispatch(
       custApprove(
         password,
+        intpass,
         accountNumber,
         cifNo,
         accountBalance,
@@ -56,23 +64,10 @@ function Approve(props) {
      
     );
     console.log("bal from approve"+accountBalance);
+    toast.success("Approved request Sent successful..!!", { autoClose: 500 });
    
     
-    // axios
-    // .delete(
-    //   `http://localhost:8080/ebanking/newapplication/disapproved/${applicationId}`
-    // )
-    // .then(
-    //   (response) => {
-    //     console.log(response);
-        // toast.success("Account Approved Successfully..!!");
-        // dispatch(FetchNewApplyList());
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //     toast.error("Somthing Wrong");
-    //   }
-    // );
+   
     
   }
   useEffect(() => {

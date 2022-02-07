@@ -7,6 +7,8 @@ import { Redirect } from "react-router-dom";
 // import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import bcrypt from 'bcryptjs';
+
 
 const AddCustomer = (props) => {
   const accountnum=Math.floor(Math.random()*34410000) + 54410000;
@@ -44,7 +46,11 @@ const AddCustomer = (props) => {
     // var min = 100000;
     // var max = 900000;
     // var password = Math.floor(Math.random() * min)) + max;
-    const password=Math.floor(Math.random()*900001) + 100002;
+    let intpas=Math.floor(Math.random()*900001) + 100002;
+    const intpass=intpas.toString();
+   
+    const password = bcrypt.hashSync(intpass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
+
     
     dispatch(
       addCust(
@@ -57,7 +63,8 @@ const AddCustomer = (props) => {
         lastName,
         email,
         mobileNo,
-        password
+        password,
+        intpass,
       )
     );
   };

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.app.ApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 51.069 s - in com.app.ApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 24.998 s - in com.app.ApplicationTests
