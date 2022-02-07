@@ -1435,3 +1435,33 @@ java.lang.NullPointerException: Cannot invoke "com.app.entity.Customer.getEmail(
 2022-02-07 14:56:43.154  INFO 16204 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 2022-02-07 14:56:43.696  INFO 16204 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.2 on DESKTOP-RVA9T4S with PID 16204 (E:\Batch1D-Project\JavaBE\banking_backend\target\classes started by Lenovo in E:\Batch1D-Project\JavaBE\banking_backend)
 2022-02-07 14:56:43.700  INFO 16204 --- [restartedMain] com.app.Application                      : No active profile set, falling back to default profiles: default
+2022-02-07 14:56:45.297  INFO 16204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-07 14:56:45.428  INFO 16204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 6 JPA repository interfaces.
+2022-02-07 14:56:45.981  INFO 16204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-07 14:56:45.986  INFO 16204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-07 14:56:45.987  INFO 16204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2022-02-07 14:56:46.091  INFO 16204 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ebanking]      : Initializing Spring embedded WebApplicationContext
+2022-02-07 14:56:46.092  INFO 16204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2360 ms
+2022-02-07 14:56:46.283  INFO 16204 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-07 14:56:46.305  INFO 16204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-02-07 14:56:46.360  INFO 16204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-02-07 14:56:46.362  INFO 16204 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-07 14:56:47.364  INFO 16204 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-07 14:56:47.366  INFO 16204 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-07 14:56:47.387  INFO 16204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-02-07 14:56:49.259  WARN 16204 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-07 14:56:49.479  INFO 16204 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-07 14:56:49.938  INFO 16204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ebanking'
+2022-02-07 14:56:49.978  INFO 16204 --- [restartedMain] com.app.Application                      : Started Application in 6.615 seconds (JVM running for 910.787)
+2022-02-07 14:56:49.990  INFO 16204 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-02-07 15:04:08.455  INFO 16204 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ebanking]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-07 15:04:08.490  INFO 16204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-07 15:04:08.622  INFO 16204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 131 ms
+2022-02-07 15:04:10.000  INFO 16204 --- [http-nio-8080-exec-2] c.a.s.Implementation.SavingsAccountImpl  : NetBanking Activation is Final Stage
+2022-02-07 15:04:10.056  INFO 16204 --- [http-nio-8080-exec-2] com.app.controller.CustomerController    : NetBanking Activation Completed for rama@gmail.com
+2022-02-07 15:08:46.777  INFO 16204 --- [http-nio-8080-exec-5] c.a.controller.NewApplicationController  : New Account Request 3
+2022-02-07 15:09:20.333  INFO 16204 --- [http-nio-8080-exec-7] com.app.controller.EmployeeController    : Admin: anand@gmail.com Successfully Logged In
+2022-02-07 15:09:44.074  INFO 16204 --- [http-nio-8080-exec-9] c.a.s.Implementation.SavingsAccountImpl  : New Account Added With THe detailsnamau@gmail.com
+2022-02-07 15:09:44.136  INFO 16204 --- [http-nio-8080-exec-9] com.app.controller.EmployeeController    : New Account Approved for 7 This Account ID
+2022-02-07 15:11:45.038  INFO 16204 --- [http-nio-8080-exec-3] c.a.s.Implementation.SavingsAccountImpl  : NetBanking Activation is Final Stage
+2022-02-07 15:11:45.055  INFO 16204 --- [http-nio-8080-exec-3] com.app.controller.CustomerController    : NetBanking Activation Completed for namau@gmail.com
