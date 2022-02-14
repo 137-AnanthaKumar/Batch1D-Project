@@ -111,7 +111,7 @@ const CustRegs = (props) => {
                   setMobileNo(e.target.value);
                 }}
                 type="text"
-                maxLength="10"
+                maxLength="12"
                 value={mobileNo}
                 placeholder="please enter Registered mobile number"
                 className="form-control  text-dark"

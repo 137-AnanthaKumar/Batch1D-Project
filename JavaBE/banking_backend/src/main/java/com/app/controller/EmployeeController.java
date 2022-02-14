@@ -24,6 +24,7 @@ import com.app.service.Interfaces.ICustomerService;
 import com.app.service.Interfaces.IEmployeeService;
 import com.app.service.Interfaces.ISavingsAccountService;
 import com.app.service.Interfaces.ITransactionService;
+import com.app.twilio.SmsSender;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -47,10 +48,12 @@ public class EmployeeController {
 	
 	@Autowired
 	private ITransactionService transactionService;
+	@Autowired
+	private SmsSender smssend;
 	
 	
 	@PostMapping("/login")
-	public ResponseEntity<?> fetchDetails(@RequestBody Employee e) {
+	public ResponseEntity< ?> fetchDetails(@RequestBody Employee e) {
 		if((e = employeeService.login(e.getEmail(),e.getPassword())) != null)
 		{
 //			System.out.println("in admin login "+e);
@@ -64,18 +67,18 @@ public class EmployeeController {
 		}
 	}
 	
-	@GetMapping("/adminProfile")
-	public ResponseEntity<?> adminProfile(@RequestParam int id)
-	{
-		Employee emp=employeeService.getEmployee(id);
-		if(emp != null)
-		{
-			return ResponseEntity.ok(emp); 
-		}
-		else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
+//	@GetMapping("/adminProfile")
+//	public ResponseEntity<?> adminProfile(@RequestParam int id)
+//	{
+//		Employee emp=employeeService.getEmployee(id);
+//		if(emp != null)
+//		{
+//			return ResponseEntity.ok(emp); 
+//		}
+//		else {
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
 	
 	//list of customers
 	@GetMapping("/customerList")
@@ -97,8 +100,12 @@ public class EmployeeController {
 	{
 		
 		savingsAccountService.addAccountDetails(account);
-      System.out.println("new"+account.getCustomer().getIntpass());
+      
 		Logger.info("New Account Approved for "+account.getAccountId() +" This Account ID");
+		
+		String messege="HI "+account.getCustomer().getFirstName()+". Your KNST Bank Application Reguest is Approved By Admin..."
+				+ "Your Account No "+account.getAccountNumber()+" and Password for NetBanking Activation is"+account.getCustomer().getIntpass();
+		smssend.sendSms(account.getCustomer().getMobileNo(), messege);
 		return ResponseEntity.ok("Successfully Added..!");
 	}
 	

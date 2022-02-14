@@ -11,9 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.controller.CustomerController;
 import com.app.dao.CustomerRepository;
 import com.app.dao.NewApplicationRepository;
+import com.app.dao.SavingsAccountRepository;
 import com.app.entity.Customer;
 import com.app.entity.NewApplication;
+import com.app.entity.SavingsAccount;
 import com.app.service.Interfaces.ICustomerService;
+import com.app.twilio.SmsSender;
 
 import ch.qos.logback.classic.Logger;
 
@@ -29,6 +32,10 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
 	private NewApplicationRepository repo;
+	@Autowired
+	private SmsSender smssend;
+	@Autowired
+	private SavingsAccountRepository savingsAccountRepo;
 	
 	 private static final org.jboss.logging.Logger Logger=LoggerFactory.logger(CustomerServiceImpl.class);
 //Customer c=new Customer();
@@ -119,9 +126,13 @@ public class CustomerServiceImpl implements ICustomerService {
 			{
 				Customer customer=optional.get();
 				customer.setPassword(password);
-				if(customerRepo.save(customer) != null)
+				if(customerRepo.save(customer) != null) {
+				
 				Logger.info("password Ubdated Successfully"+customer.getPassword());
-				return "successfully updated password!!!";
+				String messege="Your KNST Bank PassWord Ubdated Successfully for" + customer.getSavingsAccount().getAccountNumber()+"...You can Login With Your New PassWord";
+				smssend.sendSms(customer.getMobileNo(), messege);
+			    return "successfully updated password!!!";
+				}
 			}
 			return null;
 		}

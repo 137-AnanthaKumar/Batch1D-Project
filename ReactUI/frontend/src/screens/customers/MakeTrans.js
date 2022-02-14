@@ -38,7 +38,7 @@ const CustomerFundTransfer = (props) => {
 
   }
   else{
-    toast.error("Enter Proper Amount To WithDraw", { autoClose: 1000 });
+    toast.error("Enter Proper Amount To Transfer", { autoClose: 1000 });
     clearForm();
   }
   };

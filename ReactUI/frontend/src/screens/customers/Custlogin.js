@@ -4,9 +4,12 @@ import { Card } from "react-bootstrap";
 import './Customer.css';
 import { useDispatch, useSelector } from "react-redux";
 
+
 const CustLogin = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [time,setTime]=useState(60);
+  console.log(time);
   // const[data,setData]=("");
 
   const CustSignIn = useSelector((store) => store.CustSignIn);
@@ -15,19 +18,33 @@ const CustLogin = (props) => {
   const dispatch = useDispatch();
 
   const onSignin = () => {
+    
+   
     dispatch(CustSignin(email, pass));
   };
 
+  
   useEffect(() => {
     if (response && response.email === email) {
       sessionStorage.setItem("customer", JSON.stringify(response));
       props.history.push("/custhome");
+      var id=setTimeout(onLogout,600000);
+      
+      // var id=setTimeout(onLogout,60000);
     } else if (response && response.status === "error") {
       alert(response.error);
     } else if (error) {
       alert("Error: Please enter correct Credentials");
     }
   }, [loading, error, response]);
+
+ 
+ 
+  const onLogout = () => {
+    sessionStorage.removeItem("customer");
+    props.history.push("/");
+  };
+
 
   return (
 <div className="mainclass">

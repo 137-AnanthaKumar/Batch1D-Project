@@ -38,7 +38,7 @@ const toggleTab = (index) => {
 
    time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
    if(operater==="jio"){
-    const reciverAccountNo=81106677;
+    const reciverAccountNo=65273501;
     // var amount=plan;
 
     
@@ -54,7 +54,7 @@ const toggleTab = (index) => {
    } 
    else if(operater==="airtel") {
 
-    const reciverAccountNo=81106677;
+    const reciverAccountNo=65273501;
     // var amount=plan;
     dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
     console.log(senderAccountNo);
@@ -66,7 +66,7 @@ const toggleTab = (index) => {
 } 
    
    else if(operater==="bsnl") {
-    const reciverAccountNo=81106677;
+    const reciverAccountNo=65273501;
     // var amount=plan;
     dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
     console.log(senderAccountNo);
@@ -77,7 +77,7 @@ const toggleTab = (index) => {
     console.log(time);
 }
 else if(operater==="vi") {
-  const reciverAccountNo=81106677;
+  const reciverAccountNo=65273501;
   // var amount=plan;
   dispatch(CustRecharge(senderAccountNo, reciverAccountNo, plan ,operater ,mobileNo,type,date,time));
   console.log(senderAccountNo);

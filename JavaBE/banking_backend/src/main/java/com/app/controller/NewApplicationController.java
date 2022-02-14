@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.entity.NewApplication;
 import com.app.service.Interfaces.ICustomerService;
+import com.app.twilio.SmsSender;
 
 @CrossOrigin(origins = "*")
 
@@ -27,6 +28,9 @@ public class NewApplicationController {
 	@Autowired
 	private ICustomerService service;
 	
+	@Autowired
+	private SmsSender smssend;
+	
 	@GetMapping("/allaccounts")
 	public List<NewApplication> getAllRequest(){
 		return service.findAll();
@@ -34,8 +38,13 @@ public class NewApplicationController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<?> createAccount(@RequestBody NewApplication accountopen) {
+		
 		service.save(accountopen);
-		Logger.info("New Account Request "+accountopen.getApplicationId());		
+		Logger.info("New Account Request "+accountopen.getApplicationId());
+		String messege="Hi Your Application Is Successfully Received....We Will Inform Further Details";
+		
+		smssend.sendSms(accountopen.getMobile(), messege);
+		
 		return ResponseEntity.ok("Successfully Added..!");
 	}
 	

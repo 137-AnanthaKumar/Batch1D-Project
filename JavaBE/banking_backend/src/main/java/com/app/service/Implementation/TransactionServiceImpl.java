@@ -17,6 +17,7 @@ import com.app.dao.SavingsTransactionRepository;
 import com.app.entity.SavingsAccount;
 import com.app.entity.SavingsTransaction;
 import com.app.service.Interfaces.ITransactionService;
+import com.app.twilio.SmsSender;
 
 @Service      				// to tell sc that this is a service class(business logic )
 @Transactional
@@ -25,6 +26,8 @@ public class TransactionServiceImpl implements ITransactionService {
 	private SavingsAccountRepository savingsAccountRepo;
 	@Autowired
 	private SavingsTransactionRepository savingsTransactionRepo;
+	@Autowired
+	private SmsSender smssend;
 	
 	@Autowired
 	private CustomerRepository customerRepo;
@@ -57,6 +60,10 @@ public class TransactionServiceImpl implements ITransactionService {
 					senderAccount.addTransaction(transaction1);
 					receiverAccount.addTransaction(transaction2);
 					Logger.info(" Transaction Sucessfully for "+ senderAccount+" to " +receiverAccount);
+					String messege="Amount Depited"+amount+" from Your Account No"+senderAccount.getAccountNumber();
+					String messege1="Amount Credited "+amount +" From Your Account No"+receiverAccount.getAccountNumber()+" Current Available balance is :"+receiverAccount.getAccountBalance();
+					smssend.sendSms(senderAccount.getCustomer().getMobileNo(), messege);
+					smssend.sendSms(receiverAccount.getCustomer().getMobileNo(), messege1);
 					return "Transaction done Successfully";
 				}
 			}

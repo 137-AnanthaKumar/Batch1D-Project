@@ -25,6 +25,7 @@ import com.app.entity.SavingsTransaction;
 import com.app.service.Implementation.EmailServiceImpl;
 import com.app.service.Interfaces.ICustomerService;
 import com.app.service.Interfaces.ISavingsAccountService;
+import com.app.twilio.SmsSender;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import ch.qos.logback.classic.Logger;
@@ -41,6 +42,9 @@ public class CustomerController {
 	private ISavingsAccountService savingsAccountService;
 	@Autowired
 	private EmailServiceImpl email;
+	
+	@Autowired
+	private SmsSender smssend;
  private static final org.jboss.logging.Logger Logger=LoggerFactory.logger(CustomerController.class);
   
 
@@ -62,6 +66,8 @@ public class CustomerController {
 //		System.out.println("in fetch customer email : " + c.getEmail() + "	password : " + c.getPassword());
 		if ((c = customerService.getCustomerDetails(c.getEmail(), c.getPassword())) != null) {
 			Logger.info("User Logged IN "+c.getEmail());
+			String messege="Dear "+c.getFirstName() +"Now You Are Logedin ...SMS alert For NetBanking LOGIN";
+			smssend.sendSms(c.getMobileNo(), messege);
 			return ResponseEntity.ok(c);
 			
 		} else {
@@ -78,7 +84,9 @@ public class CustomerController {
 	@PutMapping("/updatePassword/{customerId}")
 	public String updatePassword(@PathVariable int customerId, @RequestBody ObjectNode json) {
 		Logger.info("Password Ubdated");
-		return customerService.updatePassword(customerId, json.get("password").asText());
+		String c=customerService.updatePassword(customerId, json.get("password").asText());
+		
+		return c;
 	}
 
 //	@PutMapping("/updateMobileNumber/{customerId}")
@@ -105,6 +113,9 @@ public class CustomerController {
 //			}
 			savingsAccountService.addSA(sa);
 			Logger.info("NetBanking Activation Completed for "+customer.getEmail());
+			c=customerService.getCustomerDetails(reg.getEmail(),reg.getPassword());
+			String messege="Hi "+c.getFirstName()+" Your Net Banking is activated ..Now You Can Make Transaction...Your Account NO:"+reg.getAccountNumber();
+			smssend.sendSms(customer.getMobileNo(), messege);
 			
 			return ResponseEntity.ok("Registered Succesfully..!!");
 			

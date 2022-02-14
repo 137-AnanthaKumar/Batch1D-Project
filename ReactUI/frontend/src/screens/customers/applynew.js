@@ -1,7 +1,6 @@
 import React ,{useState,useEffect} from 'react';
 import './applynew.css';
 import { Form } from 'react-bootstrap';
-
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";

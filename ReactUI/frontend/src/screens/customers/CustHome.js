@@ -121,7 +121,10 @@ export default function PersistentDrawerLeft(props) {
 
   const onLogout = () => {
     sessionStorage.removeItem("customer");
+ 
     props.history.push("/");
+
+
   };
 
   return (
