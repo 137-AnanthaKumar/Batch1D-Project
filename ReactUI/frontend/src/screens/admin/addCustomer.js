@@ -46,27 +46,43 @@ const AddCustomer = (props) => {
     // var min = 100000;
     // var max = 900000;
     // var password = Math.floor(Math.random() * min)) + max;
-    let intpas=Math.floor(Math.random()*900001) + 100002;
-    const intpass=intpas.toString();
-   
-    const password = bcrypt.hashSync(intpass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
-
     
-    dispatch(
-      addCust(
-        accountNumber,
-        accountBalance,
-        cifNo,
-        branchName,
-        ifscCode,
-        firstName,
-        lastName,
-        email,
-        mobileNo,
-        password,
-        intpass,
-      )
-    );
+ 
+    if(mobileNo != ""&& email !="" && setFirstName !="" && accountBalance !=""){
+      let intpas=Math.floor(Math.random()*900001) + 100002;
+       const intpass=intpas.toString();
+       const password = bcrypt.hashSync(intpass, '$2a$10$CwTycUXWue0Thq9StjUM0u');
+
+   
+      dispatch(
+ 
+
+      
+        addCust(
+          accountNumber,
+          accountBalance,
+          cifNo,
+          branchName,
+          ifscCode,
+          firstName,
+          lastName,
+          email,
+          mobileNo,
+          password,
+          intpass,
+        )
+      
+      );
+
+    }
+    else {
+      alert("Enter all details.........")
+    }
+  
+    
+   
+
+
   };
   
   useEffect(() => {
@@ -123,7 +139,7 @@ const AddCustomer = (props) => {
                 }}
                 type="text"
                 maxLength="20"
-                value={firstName}
+               required
                 placeholder="please enter First Name only"
                 className="form-control bg-dark text-white"
               />
@@ -138,7 +154,7 @@ const AddCustomer = (props) => {
                 }}
                 type="text"
                 maxLength="20"
-                value={accountBalance}
+              
                 placeholder="please enter amount in number"
                 className="form-control bg-dark text-white"
               />
@@ -152,7 +168,7 @@ const AddCustomer = (props) => {
                 }}
                 type="text"
                 maxLength="20"
-                value={lastName}
+               required
                 placeholder="please enter Last Name only"
                 className="form-control bg-dark text-white"
               />
@@ -179,7 +195,7 @@ const AddCustomer = (props) => {
                   setEmail(e.target.value);
                 }}
                 type="email"
-                value={email}
+               required
                 placeholder="please enter Primary mail id: example@org.com"
                 className="form-control bg-dark text-white"
               />
@@ -207,8 +223,8 @@ const AddCustomer = (props) => {
                   setMobileNo(e.target.value);
                 }}
                 type="text"
-                maxLength="10"
-                value={mobileNo}
+                maxLength="12"
+              required
                 placeholder="please enter Primary mobile number"
                 className="form-control bg-dark text-white"
               />
